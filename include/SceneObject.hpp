@@ -34,42 +34,42 @@
 
 class SceneObject
 {
- public:
-  SceneObject();
-  virtual ~SceneObject();
+public:
+	SceneObject();
+	virtual ~SceneObject();
 
-  // This method causes all children to be rendered, don't override this one!
-  void render();
-  // This method causes all children to be updated, don't override this one!
-  void update(double fps);
-  // This method causes all children to be initialized,don't override this one!
-  void init();
+	// This method causes all children to be rendered, don't override this one!
+	void render();
+	// This method causes all children to be updated, don't override this one!
+	void update(double fps);
+	// This method causes all children to be initialized,don't override this one!
+	void init();
 
-  void addSubObject(std::shared_ptr<SceneObject> newchild);
-  void removeSubObject(const std::shared_ptr<SceneObject> child);
-  // Dangerous to enable, and use SharedPtr if this is to be used!
-  //  std::vector<ScopedPtr<SceneObject> >& getSubObjects();
+	void addSubObject(std::shared_ptr<SceneObject> newchild);
+	void removeSubObject(const std::shared_ptr<SceneObject> child);
+	// Dangerous to enable, and use SharedPtr if this is to be used!
+	//  std::vector<ScopedPtr<SceneObject> >& getSubObjects();
 
-  void setMatrix(const glm::mat4& m) { matrix_ = m; }
-  glm::mat4& getMatrix() { return matrix_; }
+	void setMatrix(const glm::mat4& m) { matrix_ = m; }
+	glm::mat4& getMatrix() { return matrix_; }
 
- protected:
-  // Override this method with your own render-implementation.
-  virtual void privateRender() {}
-  // Override this method with your own update-implementation.
-  virtual void privateUpdate() {}
-  // Override this method with your own init-implementation.
-  virtual void privateInit() {}
+protected:
+	// Override this method with your own render-implementation.
+	virtual void privateRender() {}
+	// Override this method with your own update-implementation.
+	virtual void privateUpdate() {}
+	// Override this method with your own init-implementation.
+	virtual void privateInit() {}
 
-  // This member contains the time since last frame. It is set
-  // before privateUpdate is called.
-  double fps_;
+	// This member contains the time since last frame. It is set
+	// before privateUpdate is called.
+	double fps_;
 
-  // This is the transformation-matrix of the scene object.
-  // Relative to the object's parent. Defaults to the identity matrix.
-  glm::mat4 matrix_;
+	// This is the transformation-matrix of the scene object.
+	// Relative to the object's parent. Defaults to the identity matrix.
+	glm::mat4 matrix_;
 
- private:
-  // List of all SceneObjects that belong to the current object.
-  std::vector<std::shared_ptr<SceneObject> > children_;
+private:
+	// List of all SceneObjects that belong to the current object.
+	std::vector<std::shared_ptr<SceneObject> > children_;
 };

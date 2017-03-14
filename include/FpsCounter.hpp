@@ -14,78 +14,78 @@
 
 namespace siut {
 
-class FpsCounter {
-public:
-	FpsCounter() : frames_(0), elapsed_(0.0) {};
-	~FpsCounter() {};
+	class FpsCounter {
+	public:
+		FpsCounter() : frames_(0), elapsed_(0.0) {};
+		~FpsCounter() {};
 
-	void start();
-	void stop();
-	void frame();
-	void restart();
-	void reset();
+		void start();
+		void stop();
+		void frame();
+		void restart();
+		void reset();
 
-	double elapsed();
-	unsigned long long frames();
-	double fps();
-	
-	std::ostream& print(std::ostream& os);
+		double elapsed();
+		unsigned long long frames();
+		double fps();
 
-private:
-	Clock rolex_;
-	unsigned long long frames_; //< Number of frames_
-	double elapsed_; //< elapsed_ time between start and stop
-  FpsCounter(const FpsCounter& other){}
-//  FpsCounter& operator=(const FpsCounter& other){}
+		std::ostream& print(std::ostream& os);
 
-};
+	private:
+		Clock rolex_;
+		unsigned long long frames_; //< Number of frames_
+		double elapsed_; //< elapsed_ time between start and stop
+		FpsCounter(const FpsCounter& other) {}
+		//  FpsCounter& operator=(const FpsCounter& other){}
 
-inline void FpsCounter::start(){
-	rolex_.start();
-}
+	};
 
-inline void FpsCounter::stop() {
-	elapsed_ = rolex_.stop();
-}
+	inline void FpsCounter::start() {
+		rolex_.start();
+	}
 
-inline void FpsCounter::frame() {
-	assert(rolex_.isRunning() && "Calling frame() on a stopped FpsCounter is mongo[tm].");
-	++frames_;
-}
+	inline void FpsCounter::stop() {
+		elapsed_ = rolex_.stop();
+	}
 
-inline void FpsCounter::restart() {
-	reset();
-	start();
-}
+	inline void FpsCounter::frame() {
+		assert(rolex_.isRunning() && "Calling frame() on a stopped FpsCounter is mongo[tm].");
+		++frames_;
+	}
 
-inline void FpsCounter::reset() {
-	rolex_.reset();
-	frames_ = 0;
-	elapsed_ = 0.0;
-}
+	inline void FpsCounter::restart() {
+		reset();
+		start();
+	}
 
-inline double FpsCounter::elapsed() {
-	return (rolex_.isRunning()) ? rolex_.elapsed() : elapsed_;
-}
+	inline void FpsCounter::reset() {
+		rolex_.reset();
+		frames_ = 0;
+		elapsed_ = 0.0;
+	}
 
-inline unsigned long long FpsCounter::frames() {
-	return frames_;
-}
+	inline double FpsCounter::elapsed() {
+		return (rolex_.isRunning()) ? rolex_.elapsed() : elapsed_;
+	}
 
-inline double FpsCounter::fps() {
-	return (double) frames() / elapsed();
-}
+	inline unsigned long long FpsCounter::frames() {
+		return frames_;
+	}
 
-inline std::ostream& FpsCounter::print(std::ostream& os) {
-	os << std::fixed << std::setprecision(2);
-	os << fps() << " fps.";
-	os << std::scientific;
+	inline double FpsCounter::fps() {
+		return (double)frames() / elapsed();
+	}
 
-	return os;
-}
+	inline std::ostream& FpsCounter::print(std::ostream& os) {
+		os << std::fixed << std::setprecision(2);
+		os << fps() << " fps.";
+		os << std::scientific;
 
-inline std::ostream& operator<<(std::ostream & os, FpsCounter& f) {
-	return f.print(os);
-}
+		return os;
+	}
+
+	inline std::ostream& operator<<(std::ostream & os, FpsCounter& f) {
+		return f.print(os);
+	}
 
 } //end namespace siut

@@ -7,19 +7,19 @@
 
 class SpaceShip : public SceneObject
 {
-	public:
-		SpaceShip();
-		~SpaceShip();
+public:
+	SpaceShip();
+	~SpaceShip();
 
-  protected:
-    void privateInit();
-		void privateRender();
-		void privateUpdate();
+protected:
+	void privateInit();
+	void privateRender();
+	void privateUpdate();
 
-	private:
-	  float speed_;
-    float life_;
-    float armor_;
-    
+private:
+	float speed_;
+	float life_;
+	float armor_;
+
 };
 

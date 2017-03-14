@@ -11,12 +11,12 @@ BattleField::~BattleField()
 
 void BattleField::privateInit()
 {
-  // Create vertex arrays
+	// Create vertex arrays
 }
 
 void BattleField::privateRender()
 {
-  // Render the battlefield
+	// Render the battlefield
 }
 
 void BattleField::privateUpdate()

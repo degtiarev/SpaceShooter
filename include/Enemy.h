@@ -11,6 +11,9 @@ public:
 	Enemy();
 	~Enemy();
 
+	float curentZ = 10;
+	float curentY = 10;
+	bool isUp = true;
 
 protected:
 	void privateInit();

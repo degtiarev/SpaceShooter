@@ -13,21 +13,21 @@
 
 class GameManager : public SceneObject
 {
-	public:
-		GameManager();
-		~GameManager();
-    
-    std::shared_ptr<Camera> getCam();
+public:
+	GameManager();
+	~GameManager();
 
-  protected:
-    virtual void privateInit();
-		virtual void privateRender();
-		virtual void privateUpdate();
+	std::shared_ptr<Camera> getCam();
 
-	private:
-    std::shared_ptr<BattleField> bf_;
-    std::shared_ptr<SpaceShip> spaceship_;
+protected:
+	virtual void privateInit();
+	virtual void privateRender();
+	virtual void privateUpdate();
+
+private:
+	std::shared_ptr<BattleField> bf_;
+	std::shared_ptr<SpaceShip> spaceship_;
 	std::shared_ptr<Enemy> enemy_;
-    std::shared_ptr<Camera> cam_;
+	std::shared_ptr<Camera> cam_;
 };
 

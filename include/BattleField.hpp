@@ -10,18 +10,18 @@
 
 class BattleField : public SceneObject
 {
-	public:
-		BattleField();
-		~BattleField();
+public:
+	BattleField();
+	~BattleField();
 
-  protected:
-    virtual void privateInit();
-		virtual void privateRender();
-		virtual void privateUpdate();
+protected:
+	virtual void privateInit();
+	virtual void privateRender();
+	virtual void privateUpdate();
 
-	private:
-    std::vector< glm::vec3 > vertexArray_; // Maybe two-dim vector and several arrays
-    // normal array.
-    // texture coord array
+private:
+	std::vector< glm::vec3 > vertexArray_; // Maybe two-dim vector and several arrays
+	// normal array.
+	// texture coord array
 };
 
