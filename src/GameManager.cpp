@@ -24,6 +24,9 @@ void GameManager::privateInit()
   spaceship_.reset(new SpaceShip());
   this->addSubObject(spaceship_);
 
+  enemy_.reset(new Enemy());
+  this->addSubObject(enemy_);
+
 }
 
 void GameManager::privateRender()

@@ -147,6 +147,7 @@
     <ClCompile Include="..\src\GameManager.cpp" />
     <ClCompile Include="..\src\SceneObject.cpp" />
     <ClCompile Include="..\src\SpaceShip.cpp" />
+    <ClCompile Include="..\src\Enemy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="..\include\Input.hpp" />
     <ClInclude Include="..\include\SceneObject.hpp" />
     <ClInclude Include="..\include\SpaceShip.hpp" />
+    <ClInclude Include="..\include\Enemy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

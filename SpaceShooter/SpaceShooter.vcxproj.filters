@@ -30,6 +30,9 @@
     <ClCompile Include="..\src\SpaceShip.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Enemy.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -54,6 +57,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\SpaceShip.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Enemy.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

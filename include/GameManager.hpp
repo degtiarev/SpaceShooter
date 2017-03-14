@@ -8,6 +8,8 @@
 #include "BattleField.hpp"
 #include "SpaceShip.hpp"
 #include "Camera.hpp"
+#include "Enemy.h"
+
 
 class GameManager : public SceneObject
 {
@@ -25,6 +27,7 @@ class GameManager : public SceneObject
 	private:
     std::shared_ptr<BattleField> bf_;
     std::shared_ptr<SpaceShip> spaceship_;
+	std::shared_ptr<Enemy> enemy_;
     std::shared_ptr<Camera> cam_;
 };
 
