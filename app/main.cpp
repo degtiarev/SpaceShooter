@@ -1,6 +1,8 @@
 
 #include <windows.h>
-#include <GL/freeglut.h>  
+#include <GL/glew.h>  
+#include <GL/freeglut.h>
+#include <SOIL.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <vector>
@@ -8,7 +10,7 @@
 #include "FpsCounter.hpp"
 #include "GameManager.hpp"
 #include "glm/glm.hpp"
-#include <memory>
+
 #include <iostream>
 
 std::shared_ptr<GameManager> gm;
@@ -20,24 +22,26 @@ bool keyPressed[30];
 int mousePosX, mousePosY;
 float moveX, moveY;
 
-void init()
+void init()//preinitialization before rendering
 {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glShadeModel(GL_SMOOTH);
 	glEnable(GL_DEPTH_TEST);
 
-	counter.start();
+	GLenum err = glewInit();
+
+	counter.start();//start of fps counter
 
 	gm.reset(new GameManager());
-	gm->init();
+	gm->init();//game manager initialization
 
 	for (int i = 0; i < 30; i++)
-		keyPressed[i] = false;
+		keyPressed[i] = false;//setting key events to false
 }
 
-void display()
+void display()//rendering
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//clearing the scene
 
 	gm->update(counter.fps());
 	gm->render();
@@ -49,7 +53,7 @@ void display()
 	if (keyPressed[KEY_ID_SPACE] == true)  gm->getCam()->moveUp();
 	if (keyPressed[KEY_ID_C] == true)      gm->getCam()->moveDown();
 
-	glutSwapBuffers();
+	glutSwapBuffers();//swap buffer objects ?
 	glutPostRedisplay();
 
 }
@@ -143,7 +147,7 @@ void mouseMoved(int posX, int posY)
 	}
 }
 
-void reshape(int w, int h)
+void reshape(int w, int h)//resize
 {
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 	glMatrixMode(GL_PROJECTION);

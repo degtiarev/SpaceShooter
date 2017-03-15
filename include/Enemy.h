@@ -4,6 +4,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include "SceneObject.hpp"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 class Enemy : public SceneObject
 {

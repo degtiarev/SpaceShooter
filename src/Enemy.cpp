@@ -1,7 +1,4 @@
 ﻿#include "Enemy.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-#include <iostream>
 
 
 Enemy::Enemy()
@@ -43,17 +40,17 @@ void Enemy::privateUpdate()
 
 	if (isUp)
 	{
-		curentY += 0.02;
+		curentY += 0.02f;
 		//curentZ++;
 	}
 
 	else
 	{
-		curentY -= 0.02;
+		curentY -= 0.02f;
 		//curentZ--;
 	}
 
-	std::cout << curentY << " " << curentZ << std::endl;
+	//std::cout << curentY << " " << curentZ << std::endl;
 
 	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, curentY, -5));
 }

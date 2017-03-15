@@ -1,14 +1,15 @@
 #pragma once
 
 #include <windows.h>
+#include <GL/glew.h> 
 #include <GL/gl.h>
 #include <GL/glu.h>
 
 #include "SceneObject.hpp"
 #include "BattleField.hpp"
 #include "SpaceShip.hpp"
-#include "Camera.hpp"
 #include "Enemy.h"
+#include "Camera.hpp"
 
 
 class GameManager : public SceneObject

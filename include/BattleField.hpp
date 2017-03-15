@@ -1,13 +1,12 @@
 #pragma once
 
 #include <windows.h>
+#include <GL/glew.h> 
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-
 #include "SceneObject.hpp"
 #include "glm/glm.hpp"
-
 class BattleField : public SceneObject
 {
 public:
@@ -21,6 +20,7 @@ protected:
 
 private:
 	std::vector< glm::vec3 > vertexArray_; // Maybe two-dim vector and several arrays
+	std::vector<unsigned int> indexArray_;
 	// normal array.
 	// texture coord array
 };
