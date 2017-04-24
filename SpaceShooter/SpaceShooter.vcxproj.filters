@@ -33,6 +33,24 @@
     <ClCompile Include="..\src\Enemy.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Weapon.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Bullets.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Laser.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticlesEngineClass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ParticlesClass.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MachineGun.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -62,5 +80,26 @@
     <ClInclude Include="..\include\Enemy.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Weapon.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Bullets.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Laser.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ParticlesEngineClass.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ParticlesClass.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MachineGun.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\textures\colormap.bmp" />
   </ItemGroup>
 </Project>
