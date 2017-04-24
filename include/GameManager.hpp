@@ -8,7 +8,6 @@
 #include "BattleField.hpp"
 #include "SpaceShip.hpp"
 #include "Enemy.h"
-//#include "AraragiKoyomiClass.h"
 #include "Camera.hpp"
 #include "Bullets.h"
 

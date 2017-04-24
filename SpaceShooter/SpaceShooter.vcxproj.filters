@@ -51,6 +51,9 @@
     <ClCompile Include="..\src\MachineGun.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BMPLoader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -98,8 +101,8 @@
     <ClInclude Include="..\include\MachineGun.h">
       <Filter>include</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\textures\colormap.bmp" />
+    <ClInclude Include="..\include\BMPLoader.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

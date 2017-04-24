@@ -85,7 +85,7 @@ void display()//rendering
 	if (keyPressed[KEY_ID_BACKWARD] == true) gm->getSpaceShip()->moveBackward();
 
 	if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
-	if (keyPressed[KEY_ID_F] == true) gm->getSpaceShip()->reload();
+	if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
 	if (keyPressed[KEY_ID_X] == true) std::cout << gm->getSpaceShip()->getWeapon()->getAmmo() << std::endl;
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->changeWeapon(new Laser(200));
 	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->changeWeapon(new MachineGun(200));
@@ -136,25 +136,25 @@ void keyDown(unsigned char key, int x, int y)
 		keyPressed[KEY_ID_LEFT] = true;
 		break;
 
-	case 'u':
+		case 'i':
 		keyPressed[KEY_ID_UP] = true;
 		break;
-	case 'j':
+	case 'k':
 		keyPressed[KEY_ID_DOWN] = true;
 		break;
 
-	case 'g':
+	case 'j':
 		keyPressed[KEY_ID_FORWARD] = true;
 		break;
-	case 'b':
+	case 'l':
 		keyPressed[KEY_ID_BACKWARD] = true;
 		break;
 		//fire
 	case 'z':
 		keyPressed[KEY_ID_Z] = true;
 		break;
-	case 'f':
-		keyPressed[KEY_ID_F] = true;
+	case 'r':
+		keyPressed[KEY_ID_R] = true;
 		break;
 
 	case 'x':
@@ -210,25 +210,25 @@ void keyUp(unsigned char key, int x, int y)
 		keyPressed[KEY_ID_LEFT] = false;
 		break;
 
-	case 'u':
+	case 'i':
 		keyPressed[KEY_ID_UP] = false;
 		break;
-	case 'j':
+	case 'k':
 		keyPressed[KEY_ID_DOWN] = false;
 		break;
 
-	case 'g':
+	case 'j':
 		keyPressed[KEY_ID_FORWARD] = false;
 		break;
-	case 'b':
+	case 'l':
 		keyPressed[KEY_ID_BACKWARD] = false;
 		break;
 		//fire
 	case 'z':
 		keyPressed[KEY_ID_Z] = false;
 		break;
-	case 'f':
-		keyPressed[KEY_ID_F] = false;//reload
+	case 'r':
+		keyPressed[KEY_ID_R] = false;//reload
 		break;
 
 	case 'x':

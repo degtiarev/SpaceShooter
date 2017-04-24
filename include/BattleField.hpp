@@ -5,7 +5,6 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-//#include <BMPLoader.h>
 #include "SceneObject.hpp"
 #include "glm/glm.hpp"
 #include <iostream>
@@ -27,7 +26,6 @@ protected:
 
 private:
 
-	//BMPClass textureClass_;
 	GLuint textureName_;
 	int width_, height_, depth_;
 

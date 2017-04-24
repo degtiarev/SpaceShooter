@@ -32,7 +32,7 @@ void Bullets::privateRender()
 	auto x = position_.x;
 	auto y = position_.y;
 	auto z = position_.z;
-	float increment1 = 0.5f;
+	float increment1 = 0.8f;
 	float increment2 = 0.2f;
 
 	if (friendly_ == false)

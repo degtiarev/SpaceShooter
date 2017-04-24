@@ -16,7 +16,7 @@ const int KEY_ID_FORWARD = 10;
 const int KEY_ID_BACKWARD = 11;
 
 const int KEY_ID_X = 12;
-const int KEY_ID_F = 13;
+const int KEY_ID_R = 13;
 const int KEY_ID_Z = 14;
 const int KEY_ID_O = 15;
 const int KEY_ID_P = 16;

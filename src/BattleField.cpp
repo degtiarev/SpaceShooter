@@ -76,32 +76,32 @@ void BattleField::privateInit()
 	int width, height;
 
 	// check library linking!
-	/*unsigned char* img = SOIL_load_image("colormap.bmp", &width, &height, 0, SOIL_LOAD_RGB);
+	//unsigned char* img = SOIL_load_image("../textures/colormap.bmp", &width, &height, 0, SOIL_LOAD_RGB);
 
-	glGenTextures(1, &textureName_);
-	glBindTexture(GL_TEXTURE_2D, textureName_);
+	//glGenTextures(1, &textureName_);
+	//glBindTexture(GL_TEXTURE_2D, textureName_);
 
-	if (!img)
-		std::cout << "Not loaded" << sizeof(img) << std::endl;
+	//if (!img)
+	//	std::cout << "Not loaded" << sizeof(img) << std::endl;
 
-	if (textureName_ == NULL) {
+	//if (textureName_ == NULL) {
 
-		printf("Error in download '%s'", SOIL_last_result());
-	}
-	else {
-		std::cout << "Texture loaded: " << "size " << sizeof(img) << " height " << height << " width " << width << std::endl;
+	//	printf("Error in download '%s'", SOIL_last_result());
+	//}
+	//else {
+	//	std::cout << "Texture loaded: " << "size " << sizeof(img) << " height " << height << " width " << width << std::endl;
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
+	//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
 
-		SOIL_free_image_data(img);
-		glBindTexture(GL_TEXTURE_2D, 0);
-	}*/
+	//	SOIL_free_image_data(img);
+	//	glBindTexture(GL_TEXTURE_2D, 0);
+	//}
 }
 
 void BattleField::privateRender()
