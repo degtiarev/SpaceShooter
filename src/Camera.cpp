@@ -6,7 +6,7 @@
 
 Camera::Camera()
 {
-	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 0.0f, -50.0f));
+	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, -30.0f, -50.0f));
 }
 
 Camera::~Camera()
@@ -16,7 +16,6 @@ Camera::~Camera()
 void Camera::privateInit()
 {
 }
-
 
 void Camera::privateRender()
 {

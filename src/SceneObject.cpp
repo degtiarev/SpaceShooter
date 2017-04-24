@@ -61,5 +61,3 @@ void SceneObject::removeSubObject(const std::shared_ptr<SceneObject> child)
 			break;
 		}
 }
-
-
