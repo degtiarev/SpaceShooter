@@ -154,6 +154,7 @@
     <ClCompile Include="..\src\ParticlesClass.cpp" />
     <ClCompile Include="..\src\ParticlesEngineClass.cpp" />
     <ClCompile Include="..\src\SceneObject.cpp" />
+    <ClCompile Include="..\src\shader.cpp" />
     <ClCompile Include="..\src\SpaceShip.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />
     <ClCompile Include="..\src\Weapon.cpp" />
@@ -172,9 +173,22 @@
     <ClInclude Include="..\include\ParticlesClass.h" />
     <ClInclude Include="..\include\ParticlesEngineClass.h" />
     <ClInclude Include="..\include\SceneObject.hpp" />
+    <ClInclude Include="..\include\ShaderTest.h" />
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
     <ClInclude Include="..\include\Weapon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\shaders\brick.frag" />
+    <None Include="..\shaders\brick.vert" />
+    <None Include="..\shaders\fixed.frag" />
+    <None Include="..\shaders\fixed.vert" />
+    <None Include="..\shaders\phong.frag" />
+    <None Include="..\shaders\phong.vert" />
+    <None Include="..\shaders\red.frag" />
+    <None Include="..\shaders\red.vert" />
+    <None Include="..\shaders\reflection.frag" />
+    <None Include="..\shaders\reflection.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

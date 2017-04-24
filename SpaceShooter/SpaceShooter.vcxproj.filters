@@ -10,6 +10,9 @@
     <Filter Include="app">
       <UniqueIdentifier>{1d6bffaa-214e-49cb-abf0-48bb79e7cada}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{b2711004-bea7-4262-b711-f875be26c7e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\app\main.cpp">
@@ -52,6 +55,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\src\BMPLoader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shader.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,5 +110,40 @@
     <ClInclude Include="..\include\BMPLoader.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\ShaderTest.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\shaders\fixed.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\fixed.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\phong.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\phong.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\red.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\red.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\reflection.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\reflection.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\brick.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\brick.vert">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

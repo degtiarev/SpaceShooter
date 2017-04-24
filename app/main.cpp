@@ -10,6 +10,7 @@
 #include "GameManager.hpp"
 #include "glm/glm.hpp"
 #include "Weapon.h"
+#include "ShaderTest.h"
 
 #include <iostream>
 
@@ -136,7 +137,7 @@ void keyDown(unsigned char key, int x, int y)
 		keyPressed[KEY_ID_LEFT] = true;
 		break;
 
-		case 'i':
+	case 'i':
 		keyPressed[KEY_ID_UP] = true;
 		break;
 	case 'k':
@@ -291,6 +292,24 @@ void reshape(int w, int h)//resize
 	//  gluLookAt(0.0, 0.0, 10.0,     0.0, 0.0, 0.0,    0.0, 1.0, 0.0);
 }
 
+int printOglError(char *file, int line)
+{
+	//
+	// Returns 1 if an OpenGL error occurred, 0 otherwise.
+	//
+	GLenum glErr;
+	int    retCode = 0;
+
+	glErr = glGetError();
+	while (glErr != GL_NO_ERROR)
+	{
+		printf("glError in file %s @ line %d: %s\n", file, line, gluErrorString(glErr));
+		retCode = 1;
+		glErr = glGetError();
+	}
+	return retCode;
+}
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -308,6 +327,19 @@ int main(int argc, char** argv)
 	glutMotionFunc(mouseMoved);
 
 	// Add other callback functions here..
+
+	int success = 0;
+	int gl_major, gl_minor;
+	GLchar *VertexShaderSource, *FragmentShaderSource;
+
+	readShaderSource("../shaders/red", &VertexShaderSource, &FragmentShaderSource);
+
+
+	readShaderSource("red", &VertexShaderSource, &FragmentShaderSource);
+	success = installShaders(VertexShaderSource, FragmentShaderSource);
+	success *= initRedShader();
+
+
 
 	glutMainLoop();
 	return 0;

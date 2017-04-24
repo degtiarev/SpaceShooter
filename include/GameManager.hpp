@@ -160,6 +160,5 @@ private:
 	const int battlefieldDepth_ = 512;
 
 	int enemyCounter_ = 0;
-	//std::shared_ptr<ParticlesEngineClass> particles_ptr;
 };
 
