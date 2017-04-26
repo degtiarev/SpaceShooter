@@ -139,5 +139,11 @@
     <None Include="..\shaders\brick.vert">
       <Filter>shaders</Filter>
     </None>
+    <None Include="..\shaders\bfshader.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\bfshader.vert">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

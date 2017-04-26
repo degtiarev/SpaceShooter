@@ -177,6 +177,8 @@
     <ClInclude Include="..\include\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\shaders\bfshader.frag" />
+    <None Include="..\shaders\bfshader.vert" />
     <None Include="..\shaders\brick.frag" />
     <None Include="..\shaders\brick.vert" />
     <None Include="..\shaders\fixed.frag" />

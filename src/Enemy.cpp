@@ -61,7 +61,7 @@ void Enemy::privateInit()
 
 	glEndList();//end new list
 
-	shader.initShaders("../shaders/brick");
+	shader.initShaders("../shaders/phong");
 
 }
 
