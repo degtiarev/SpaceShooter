@@ -335,9 +335,9 @@ int main(int argc, char** argv)
 	readShaderSource("../shaders/red", &VertexShaderSource, &FragmentShaderSource);
 
 
-	readShaderSource("red", &VertexShaderSource, &FragmentShaderSource);
-	success = installShaders(VertexShaderSource, FragmentShaderSource);
-	success *= initRedShader();
+	//readShaderSource("red", &VertexShaderSource, &FragmentShaderSource);
+	//success = installShaders(VertexShaderSource, FragmentShaderSource);
+	//success *= initRedShader();
 
 
 

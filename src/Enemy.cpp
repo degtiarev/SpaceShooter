@@ -61,21 +61,22 @@ void Enemy::privateInit()
 
 	glEndList();//end new list
 
+	shader.initShaders("../shaders/brick");
+
 }
 
 void Enemy::privateRender()
 {
+	shader.enable();
 
 	glCallList(list_id);
 
-
-
+	shader.disable();
 }
 
 void Enemy::privateUpdate()
 {
 	//move object
-
 
 	float max_x = xBoundary_;
 	float min_x = xBoundary_*-1;

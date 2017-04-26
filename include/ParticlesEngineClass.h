@@ -3,7 +3,6 @@
 #include <GL/glew.h> 
 #include <GL/gl.h>
 #include <GL/glu.h>
-//#include "BMPLoader.h"
 #include "SceneObject.hpp"
 #include "ParticlesClass.h"
 #include "glm/glm.hpp"

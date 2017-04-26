@@ -1,7 +1,5 @@
 #include "Weapon.h"
 
-
-
 Weapon::Weapon(std::string name_, int ammo_)
 {
 	this->ammo = ammo_;

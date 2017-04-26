@@ -8,7 +8,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "Weapon.h"
-
+#include "Shader1.hpp"
 
 class Enemy : public SceneObject
 {
@@ -53,6 +53,7 @@ private:
 	double y_coord = 0.0;
 
 	GLuint textureName_;
+	Shader shader;
 
 	std::vector< std::vector<float>> vertexArray_; //vertex array
 	std::vector< glm::vec3 > normalArray_; // normals array

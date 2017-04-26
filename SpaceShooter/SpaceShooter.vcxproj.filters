@@ -42,22 +42,16 @@
     <ClCompile Include="..\src\Bullets.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Laser.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ParticlesEngineClass.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ParticlesClass.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\MachineGun.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\BMPLoader.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\shader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Shader1.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,7 +101,7 @@
     <ClInclude Include="..\include\MachineGun.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\BMPLoader.h">
+    <ClInclude Include="..\include\Shader1.hpp">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ShaderTest.h">
