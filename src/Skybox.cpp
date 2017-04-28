@@ -38,7 +38,7 @@ void Skybox::loadCubemap()
 		"../textures/skybox_up.bmp",				// up
 		"../textures/skybox_down.bmp",			// down
 		"../textures/skybox_north.bmp",			// north
-		"../texturesq/skybox_south.bmp",			// south
+		"../textures/skybox_south.bmp",			// south
 		SOIL_LOAD_RGB,
 		SOIL_CREATE_NEW_ID,
 		SOIL_FLAG_MIPMAPS
