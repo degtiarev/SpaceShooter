@@ -23,8 +23,8 @@
 // Shader types
 //
 typedef enum {
-    EVertexShader,
-    EFragmentShader,
+	EVertexShader,
+	EFragmentShader,
 } EShaderType;
 
 
@@ -32,12 +32,12 @@ typedef enum {
 // Which models to render
 //
 typedef enum {
-    EModelFirst  = 0,
-    EModelCube   = 0,
-    EModelTeapot = 1,
-    EModelSphere = 2,
-    EModelTorus  = 3,
-    EModelLast   = 3,
+	EModelFirst = 0,
+	EModelCube = 0,
+	EModelTeapot = 1,
+	EModelSphere = 2,
+	EModelTorus = 3,
+	EModelLast = 3,
 } EModelType;
 
 //////////////////////

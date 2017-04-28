@@ -8,31 +8,31 @@
 #include <stdio.h>
 
 
-enum ShaderType {V_SHADER, F_SHADER};
+enum ShaderType { V_SHADER, F_SHADER };
 
-class Shader 
+class Shader
 {
-	public:
-		Shader();
-		~Shader();
-  
-    // enable and disable program
-    void enable();
-    void disable();
-    GLuint getProg();
-    
-    bool initShaders(char *fileName);
+public:
+	Shader();
+	~Shader();
+
+	// enable and disable program
+	void enable();
+	void disable();
+	GLuint getProg();
+
+	bool initShaders(char *fileName);
 
 
-	private:
-  
-    GLuint vs_, fs_, prog_;
-    GLchar *vertexShaderSource_, *fragmentShaderSource_;
+private:
 
-    int shaderSize(char *fileName, ShaderType shaderType);
-    int readShader(char *fileName, ShaderType shaderType, 
-                   char *shaderText, int size);
-    int loadShaderSource(const GLchar *vertexShader, const GLchar *fragmentShader);
+	GLuint vs_, fs_, prog_;
+	GLchar *vertexShaderSource_, *fragmentShaderSource_;
+
+	int shaderSize(char *fileName, ShaderType shaderType);
+	int readShader(char *fileName, ShaderType shaderType,
+		char *shaderText, int size);
+	int loadShaderSource(const GLchar *vertexShader, const GLchar *fragmentShader);
 
 };
 

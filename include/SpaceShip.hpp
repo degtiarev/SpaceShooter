@@ -54,7 +54,7 @@ private:
 	GLuint textureName_;
 
 	std::shared_ptr<ParticlesEngineClass> particles_ptr;
-	std::vector< std::vector<float>> vertexArray_; 							
+	std::vector< std::vector<float>> vertexArray_;
 	Weapon* weapon;
 
 };

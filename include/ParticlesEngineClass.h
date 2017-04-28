@@ -25,7 +25,7 @@ public:
 	// glBindBuffer(GL_ARRAY_BUFFER, billboard_vertex_buffer);
 	// glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 	**/
-//	BMPClass textureClass_;
+	//	BMPClass textureClass_;
 	GLuint textureName_;
 
 
