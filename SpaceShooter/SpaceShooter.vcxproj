@@ -153,6 +153,7 @@
     <ClCompile Include="..\src\SceneObject.cpp" />
     <ClCompile Include="..\src\shader.cpp" />
     <ClCompile Include="..\src\Shader1.cpp" />
+    <ClCompile Include="..\src\Skybox.cpp" />
     <ClCompile Include="..\src\SpaceShip.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />
     <ClCompile Include="..\src\Weapon.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="..\include\SceneObject.hpp" />
     <ClInclude Include="..\include\Shader1.hpp" />
     <ClInclude Include="..\include\ShaderTest.h" />
+    <ClInclude Include="..\include\Skybox.h" />
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
     <ClInclude Include="..\include\Weapon.h" />
@@ -189,6 +191,8 @@
     <None Include="..\shaders\red.vert" />
     <None Include="..\shaders\reflection.frag" />
     <None Include="..\shaders\reflection.vert" />
+    <None Include="..\shaders\skybox.frag" />
+    <None Include="..\shaders\skybox.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
