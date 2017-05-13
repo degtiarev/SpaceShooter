@@ -26,11 +26,9 @@ void GameManager::privateInit()
 	spaceship_.reset(new SpaceShip());
 	this->addSubObject(spaceship_);
 
-	enemy_.reset(new Enemy("ordinary", 1, battlefieldWidth_, battlefieldDepth_));
-	enemy_->setWeapon(new MachineGun(9999));
+	enemy_.reset(new Enemy(1, battlefieldWidth_, battlefieldDepth_));
 	attackingEnemyArr_.push_back(enemy_);
 	this->addSubObject(enemy_);
-
 }
 
 void GameManager::privateRender()
@@ -139,61 +137,33 @@ std::shared_ptr<Skybox> GameManager::getSkybox()
 
 void GameManager::addEnemies()
 {
-	//for (int i = 0; i < 50; i++) {
+	//float speed = static_cast <float> (rand() % 7 + 1);
+	//int xStartPos = rand() % 32 + 20;
 
-	float speed = static_cast <float> (rand() % 7 + 1);
-	int xStartPos = rand() % 32 + 20;
-	//random start position
-	enemy_ = std::make_shared<Enemy>(*(new Enemy("ordinary", speed, xStartPos, battlefieldDepth_)));
-
-	// Every 2'th enemy has a weapon
-	if (enemyCounter_ == 2)
-	{
-		enemy_->setWeapon(new MachineGun(9999));
-		attackingEnemyArr_.push_back(enemy_);
-		this->addSubObject(enemy_);
-		enemyArr_.push_back(enemy_);
-		enemyCounter_ = 0;
-	}
-	else
-	{
-		this->addSubObject(enemy_);
-		enemyArr_.push_back(enemy_);
-		enemyCounter_++;
-	}
-	//}
+	enemy_.reset(new Enemy(1, battlefieldWidth_, battlefieldDepth_));
+	attackingEnemyArr_.push_back(enemy_);
+	this->addSubObject(enemy_);
 }
 
 void GameManager::weaponFire()
 {
-	auto weapon = spaceship_->getWeapon();
-
-	if (weapon->getAmmo() > 0)
+	if (spaceship_->shoot())
 	{
 		auto position = spaceship_->getMatrix();
 
-		weapon->shoot();																			// Lower ammo count of weapon
-		bullets_ = std::make_shared<Bullets>(*(new Bullets(weapon, position, true, battlefieldDepth_)));		// "Create" bullet
+		bullets_ = std::make_shared<Bullet>(*(new Bullet(spaceship_->getWeapon(), position, true, battlefieldDepth_)));	// "Create" bullet
 
-		this->addSubObject(bullets_);														// Add bullets to the scene
+		this->addSubObject(bullets_);																	// Add bullets to the scene
 		bulletsArr_.push_back(bullets_);
 	}
 }
 
 void GameManager::enemyFire(std::shared_ptr<Enemy> enemy_)
 {
-	auto weapon = enemy_->getWeapon();
-
-	if (weapon->getAmmo() > 0)
-	{
-		auto position = enemy_->getMatrix();
-
-		weapon->shoot();																			// Lower ammo count of weapon
-		bullets_ = std::make_shared<Bullets>(*(new Bullets(weapon, position, false, battlefieldDepth_)));		// "Create" bullet
-
-		this->addSubObject(bullets_);														// Add bullets to the scene
-		enemyBulletsArr_.push_back(bullets_);
-	}
+	auto position = enemy_->getMatrix();
+	bullets_ = std::make_shared<Bullet>(*(new Bullet("MachineGun", position, false, battlefieldDepth_)));		// "Create" bullet
+	this->addSubObject(bullets_);														// Add bullets to the scene
+	enemyBulletsArr_.push_back(bullets_);
 
 }
 

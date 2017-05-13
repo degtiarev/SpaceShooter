@@ -7,13 +7,12 @@
 #include "SceneObject.hpp"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
-#include "Weapon.h"
 #include "Shader1.hpp"
 
 class Enemy : public SceneObject
 {
 public:
-	Enemy(std::string type, float speed, int xBoundary, float startPos);
+	Enemy(float speed, int xBoundary, float startPos);
 	~Enemy();
 
 	int list_id;
@@ -21,8 +20,7 @@ public:
 	std::vector< std::vector<float>> getVertexArr();
 	GLuint vertexbuffer;
 	bool getEnemyStatus();// if enemy status is not active - erase enemy from the scene
-	void setWeapon(Weapon* weapon);
-	Weapon* getWeapon() const;
+	std::string getWeaponType();
 	void move();
 
 protected:
@@ -34,13 +32,10 @@ protected:
 
 private:
 	float speed;
-	float life;
-	float armor;
 	bool isActive = true;
 
-	std::string type_;
+	std::string weaponType = "MachineGun";
 
-	Weapon* weapon_;
 	float startPos_;
 
 	bool checkFlag = false;
@@ -62,4 +57,3 @@ private:
 	int xBoundary_;
 	int xPos_;
 };
-

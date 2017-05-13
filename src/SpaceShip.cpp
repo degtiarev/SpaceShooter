@@ -3,7 +3,9 @@
 
 SpaceShip::SpaceShip()
 {
-	setWeapon(new MachineGun(100));
+	this->currentWeaponType = "MachineGun";
+	laserAmountBullets = 100;
+	mashineGunAmountBullets = 100;
 }
 
 SpaceShip::~SpaceShip()
@@ -40,30 +42,51 @@ void SpaceShip::moveForward()
 	matrix_ = glm::translate(matrix_, glm::vec3(0.0f, 0.0f, -5.0f));
 }
 
-std::vector<std::vector<float>> SpaceShip::getVertexArr()
+
+void SpaceShip::setWeapon(std::string weaponName)
 {
-	return vertexArray_;
+	this->currentWeaponType = weaponName;
 }
 
-void SpaceShip::setWeapon(Weapon * weapon_)
+std::string SpaceShip::getWeapon()
 {
-	this->weapon = weapon_;
+	return this->currentWeaponType;
 }
 
-Weapon * SpaceShip::getWeapon() const
+int SpaceShip::getLaserAmountBullets()
 {
-	return this->weapon;
+	return this->laserAmountBullets;
 }
 
-void SpaceShip::changeWeapon(Weapon * weapon)
+int SpaceShip::getMashineGunAmountBullets()
 {
-	delete this->weapon;
-	this->weapon = weapon;
+	return this->mashineGunAmountBullets;
+}
+
+bool SpaceShip::shoot()
+{
+	if (currentWeaponType == "MachineGun" && mashineGunAmountBullets > 0)
+	{
+		mashineGunAmountBullets -= 1;
+		return true;
+	}
+
+	if (currentWeaponType == "Laser"  && laserAmountBullets > 0)
+	{
+		laserAmountBullets -= 1;
+		return true;
+	}
+
+	return false;
 }
 
 void SpaceShip::reload()
 {
-	this->weapon->addAmmo();
+	if (currentWeaponType == "MachineGun")
+		mashineGunAmountBullets = 100;
+
+	if (currentWeaponType == "Laser")
+		laserAmountBullets = 100;
 }
 
 void SpaceShip::privateInit()

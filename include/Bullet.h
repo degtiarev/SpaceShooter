@@ -8,23 +8,28 @@
 #include "SceneObject.hpp"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
-#include "Weapon.h"
 #include <string>
 
-class Bullets : public SceneObject
+class Bullet : public SceneObject
 {
 public:
-	Bullets(Weapon* weapon, glm::mat4 position, bool friendly, int depth);
-	~Bullets();
+	Bullet(std::string type, glm::mat4 position, bool friendly, int depth);
+	~Bullet();
 	glm::vec3 getPosition();
 
 	int life_;
+	int bullets;
 	std::vector< std::vector<float>> getVertexArr();
+
+
 
 protected:
 	void privateInit();
 	void privateRender();
 	void privateUpdate();
+
+	void createBullets();
+
 
 private:
 	std::string type_;

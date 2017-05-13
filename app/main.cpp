@@ -9,7 +9,6 @@
 #include "FpsCounter.hpp"
 #include "GameManager.hpp"
 #include "glm/glm.hpp"
-#include "Weapon.h"
 #include "ShaderTest.h"
 
 #include <iostream>
@@ -87,9 +86,14 @@ void display()//rendering
 
 	if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
 	if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
-	if (keyPressed[KEY_ID_X] == true) std::cout << gm->getSpaceShip()->getWeapon()->getAmmo() << std::endl;
-	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->changeWeapon(new Laser(200));
-	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->changeWeapon(new MachineGun(200));
+	if (keyPressed[KEY_ID_X] == true) {
+		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
+		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
+
+		std::cout << gm->enemyBulletsArr_.size() << std::endl;
+	}
+	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
+	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
 	if (keyPressed[KEY_ID_O] == true) gm->addEnemies();
 	if (keyPressed[KEY_ID_P] == true) gm->getEnemy()->move();
 
