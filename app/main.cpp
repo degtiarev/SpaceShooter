@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <vector>
 #include "Input.hpp"
-#include "FpsCounter.hpp"
+#include "FPS.h"
 #include "GameManager.hpp"
 #include "glm/glm.hpp"
 #include "ShaderTest.h"
@@ -14,7 +14,7 @@
 #include <iostream>
 
 std::shared_ptr<GameManager> gm;
-siut::FpsCounter counter;
+std::shared_ptr<FPS> counter;
 
 int window;
 
@@ -30,7 +30,7 @@ void init()//preinitialization before rendering
 
 	GLenum err = glewInit();
 
-	counter.start();//start of fps counter
+	counter = std::make_shared<FPS>();
 
 	gm.reset(new GameManager());
 	gm->init();//game manager initialization
@@ -43,7 +43,8 @@ void display()//rendering
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//clearing the scene
 
-	gm->update(counter.fps());
+	gm->update(1);
+	counter->CalculateFrameRate(); //start of fps counter
 	gm->render();
 
 	// like third-person shooter (camera+ship)
@@ -90,8 +91,9 @@ void display()//rendering
 		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
 		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
 
-		std::cout << gm->enemyBulletsArr_.size() << std::endl;
+
 	}
+	std::cout << counter->fps << std::endl;
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
 	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
 	if (keyPressed[KEY_ID_O] == true) gm->addEnemies();

@@ -156,13 +156,12 @@
     <ClCompile Include="..\src\Skybox.cpp" />
     <ClCompile Include="..\src\SpaceShip.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />
+    <ClCompile Include="..\src\FPS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp" />
     <ClInclude Include="..\include\Bullet.h" />
     <ClInclude Include="..\include\Camera.hpp" />
-    <ClInclude Include="..\include\Clock.hpp" />
-    <ClInclude Include="..\include\FpsCounter.hpp" />
     <ClInclude Include="..\include\GameManager.hpp" />
     <ClInclude Include="..\include\Input.hpp" />
     <ClInclude Include="..\include\ParticlesClass.h" />
@@ -173,6 +172,7 @@
     <ClInclude Include="..\include\Skybox.h" />
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
+    <ClInclude Include="..\include\FPS.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\bfshader.frag" />

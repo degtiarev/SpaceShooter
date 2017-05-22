@@ -49,8 +49,6 @@ private:
 	std::shared_ptr<Bullet> bullets_;
 	std::shared_ptr<Skybox> skybox_;
 
-
-
 	std::vector <std::shared_ptr<Enemy>> enemyArr_;
 	std::vector <std::shared_ptr<Enemy>> attackingEnemyArr_;
 

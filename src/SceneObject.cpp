@@ -4,6 +4,7 @@
 #include <GL/gl.h>
 #include "glm/glm.hpp"
 #include "glm/gtc/type_ptr.hpp"
+#include <iostream>
 
 // NB! Check matrix mult and scoped_ptr
 

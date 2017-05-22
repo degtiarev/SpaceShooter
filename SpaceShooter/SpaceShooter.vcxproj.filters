@@ -54,18 +54,15 @@
     <ClCompile Include="..\src\Bullet.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\FPS.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Camera.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Clock.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\FpsCounter.hpp">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\GameManager.hpp">
@@ -99,6 +96,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Bullet.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FPS.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
