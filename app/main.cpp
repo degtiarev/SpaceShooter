@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <windows.h>
 #include <GL/glew.h>  
 #include <GL/freeglut.h>
@@ -21,6 +23,7 @@ int window;
 bool keyPressed[30];
 int mousePosX, mousePosY;
 float moveX, moveY;
+void printtext(int x, int y, std::string String);
 
 void init()//preinitialization before rendering
 {
@@ -46,6 +49,8 @@ void display()//rendering
 	gm->update(1);
 	counter->CalculateFrameRate(); //start of fps counter
 	gm->render();
+
+	printtext(920, 735, "FPS: " + std::to_string(int(counter->fps)));
 
 	// like third-person shooter (camera+ship)
 	if (keyPressed[KEY_ID_W] == true) {
@@ -90,10 +95,8 @@ void display()//rendering
 	if (keyPressed[KEY_ID_X] == true) {
 		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
 		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
-
-
 	}
-	std::cout << counter->fps << std::endl;
+
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
 	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
 	if (keyPressed[KEY_ID_O] == true) gm->addEnemies();
@@ -349,4 +352,29 @@ int main(int argc, char** argv)
 
 	glutMainLoop();
 	return 0;
+}
+void printtext(int x, int y, std::string String)
+{
+	char string[64];
+	sprintf(string, "something");
+	//(x,y) is from the bottom left of the window
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho(0, 1024, 0, 768, -1.0f, 1.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	glPushAttrib(GL_DEPTH_TEST);
+	glDisable(GL_DEPTH_TEST);
+	glRasterPos2i(x, y);
+	for (int i = 0; i < String.size(); i++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, String[i]);
+	}
+	glPopAttrib();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 }
