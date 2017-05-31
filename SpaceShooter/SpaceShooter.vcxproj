@@ -156,6 +156,7 @@
     <ClCompile Include="..\src\SpaceShip.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />
     <ClCompile Include="..\src\FPS.cpp" />
+    <ClCompile Include="..\src\Water.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
     <ClInclude Include="..\include\FPS.h" />
+    <ClInclude Include="..\include\Water.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\bfshader.frag" />
@@ -179,6 +181,8 @@
     <None Include="..\shaders\reflection.vert" />
     <None Include="..\shaders\skybox.frag" />
     <None Include="..\shaders\skybox.vert" />
+    <None Include="..\shaders\water.frag" />
+    <None Include="..\shaders\water.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\textures\colormap.bmp" />

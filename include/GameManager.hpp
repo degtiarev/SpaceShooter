@@ -11,6 +11,7 @@
 #include "Camera.hpp"
 #include "Bullet.h"
 #include "Skybox.h"
+#include "Water.h"
 
 class GameManager : public SceneObject
 {
@@ -48,6 +49,7 @@ private:
 	std::shared_ptr<Camera> cam_;
 	std::shared_ptr<Bullet> bullets_;
 	std::shared_ptr<Skybox> skybox_;
+	std::shared_ptr<Water> water_;
 
 	std::vector <std::shared_ptr<Enemy>> enemyArr_;
 	std::vector <std::shared_ptr<Enemy>> attackingEnemyArr_;

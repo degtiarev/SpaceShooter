@@ -28,6 +28,11 @@ void Skybox::privateInit()
 
 }
 
+GLuint Skybox::getTextures()
+{
+	return cubeTextures_;
+}
+
 void Skybox::loadCubemap()
 {
 	cubeTextures_ = SOIL_load_OGL_cubemap

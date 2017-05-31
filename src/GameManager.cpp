@@ -29,6 +29,10 @@ void GameManager::privateInit()
 	enemy_.reset(new Enemy(1, battlefieldWidth_, battlefieldDepth_));
 	attackingEnemyArr_.push_back(enemy_);
 	this->addSubObject(enemy_);
+
+	water_.reset(new Water(skybox_));
+	this->addSubObject(water_);
+
 }
 
 void GameManager::privateRender()

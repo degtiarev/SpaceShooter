@@ -57,6 +57,9 @@
     <ClCompile Include="..\src\FPS.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Water.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -98,6 +101,9 @@
     <ClInclude Include="..\include\FPS.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Water.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\reflection.frag">
@@ -116,6 +122,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="..\shaders\skybox.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\water.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\water.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

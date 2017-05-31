@@ -20,6 +20,9 @@ public:
 	Skybox(std::shared_ptr<Camera> camera);
 	~Skybox();
 
+	GLuint getTextures();
+
+
 protected:
 	virtual void privateInit();
 	virtual void privateRender();
