@@ -151,7 +151,6 @@
     <ClCompile Include="..\src\ParticlesClass.cpp" />
     <ClCompile Include="..\src\ParticlesEngineClass.cpp" />
     <ClCompile Include="..\src\SceneObject.cpp" />
-    <ClCompile Include="..\src\shader.cpp" />
     <ClCompile Include="..\src\Shader1.cpp" />
     <ClCompile Include="..\src\Skybox.cpp" />
     <ClCompile Include="..\src\SpaceShip.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="..\include\ParticlesEngineClass.h" />
     <ClInclude Include="..\include\SceneObject.hpp" />
     <ClInclude Include="..\include\Shader1.hpp" />
-    <ClInclude Include="..\include\ShaderTest.h" />
     <ClInclude Include="..\include\Skybox.h" />
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
@@ -177,18 +175,22 @@
   <ItemGroup>
     <None Include="..\shaders\bfshader.frag" />
     <None Include="..\shaders\bfshader.vert" />
-    <None Include="..\shaders\brick.frag" />
-    <None Include="..\shaders\brick.vert" />
-    <None Include="..\shaders\fixed.frag" />
-    <None Include="..\shaders\fixed.vert" />
-    <None Include="..\shaders\phong.frag" />
-    <None Include="..\shaders\phong.vert" />
-    <None Include="..\shaders\red.frag" />
-    <None Include="..\shaders\red.vert" />
     <None Include="..\shaders\reflection.frag" />
     <None Include="..\shaders\reflection.vert" />
     <None Include="..\shaders\skybox.frag" />
     <None Include="..\shaders\skybox.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\textures\colormap.bmp" />
+    <Image Include="..\textures\colorMap2012.bmp" />
+    <Image Include="..\textures\heightMap2012.bmp" />
+    <Image Include="..\textures\particle.png" />
+    <Image Include="..\textures\skybox_down.bmp" />
+    <Image Include="..\textures\skybox_east.bmp" />
+    <Image Include="..\textures\skybox_north.bmp" />
+    <Image Include="..\textures\skybox_south.bmp" />
+    <Image Include="..\textures\skybox_up.bmp" />
+    <Image Include="..\textures\skybox_west.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

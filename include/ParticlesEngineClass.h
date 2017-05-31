@@ -7,25 +7,13 @@
 #include "ParticlesClass.h"
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "SOIL.h"
 
 class ParticlesEngineClass : public SceneObject
 {
 public:
-	ParticlesEngineClass();
+	ParticlesEngineClass(GLuint textureName);
 	~ParticlesEngineClass();
-	/**
-	//const GLfloat vertex_buffer_data[4][3] = {
-	//	{-0.5f, -0.5f, 0.0f},
-	//	{0.5f, -0.5f, 0.0f},
-	//	{-0.5f, 0.5f, 0.0f},
-	//	{0.5f, 0.5f, 0.0f},
-	//};
-	// GLuint billboard_vertex_buffer;
-	// glGenBuffers(1, &billboard_vertex_buffer);
-	// glBindBuffer(GL_ARRAY_BUFFER, billboard_vertex_buffer);
-	// glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-	**/
-	//	BMPClass textureClass_;
 	GLuint textureName_;
 
 
@@ -45,9 +33,10 @@ public:
 	GLuint	texture[1];					// Storage For Our Particle Texture
 
 	static const int MAX_PARTICLES = 1000;
-
-
 	ParticlesClass particlesArray_[MAX_PARTICLES];
+
+	int dir_;
+
 	GLfloat colors[12][3] = {
 		{ 1.0f,0.5f,0.5f },{ 1.0f,0.75f,0.5f },{ 1.0f,1.0f,0.5f },{ 0.75f,1.0f,0.5f },
 		{ 0.5f,1.0f,0.5f },{ 0.5f,1.0f,0.75f },{ 0.5f,1.0f,1.0f },{ 0.5f,0.75f,1.0f },

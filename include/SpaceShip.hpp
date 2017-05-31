@@ -44,8 +44,9 @@ private:
 	GLuint textureName_;
 	std::string currentWeaponType;
 
-
 	std::shared_ptr<ParticlesEngineClass> particles_ptr;
+	GLuint particleTexture_;
+
 	std::vector< std::vector<float>> vertexArray_;
 
 	int laserAmountBullets;

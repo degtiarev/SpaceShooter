@@ -35,7 +35,7 @@ void Enemy::privateInit()
 	list_id = glGenLists(1);
 	glNewList(list_id, GL_COMPILE);//begin new list
 
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 0.0f);
 	float size = 5.0f;
 
 	glBegin(GL_QUADS);
@@ -50,17 +50,17 @@ void Enemy::privateInit()
 
 	glEndList();//end new list
 
-	shader.initShaders("../shaders/phong");
+
 
 }
 
 void Enemy::privateRender()
 {
-	shader.enable();
+
 
 	glCallList(list_id);
 
-	shader.disable();
+
 }
 
 void Enemy::privateUpdate()

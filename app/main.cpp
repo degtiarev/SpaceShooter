@@ -11,7 +11,6 @@
 #include "FPS.h"
 #include "GameManager.hpp"
 #include "glm/glm.hpp"
-#include "ShaderTest.h"
 
 #include <iostream>
 
@@ -340,13 +339,6 @@ int main(int argc, char** argv)
 	int success = 0;
 	int gl_major, gl_minor;
 	GLchar *VertexShaderSource, *FragmentShaderSource;
-
-	readShaderSource("../shaders/red", &VertexShaderSource, &FragmentShaderSource);
-
-
-	//readShaderSource("red", &VertexShaderSource, &FragmentShaderSource);
-	//success = installShaders(VertexShaderSource, FragmentShaderSource);
-	//success *= initRedShader();
 
 
 

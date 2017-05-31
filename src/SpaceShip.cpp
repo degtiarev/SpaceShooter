@@ -1,5 +1,6 @@
 #include "SpaceShip.hpp"
 #include "SOIL.h"
+#include <iostream>
 
 SpaceShip::SpaceShip()
 {
@@ -107,10 +108,46 @@ void SpaceShip::privateInit()
 
 	glEndList();//end new list
 
-	particles_ptr.reset(new ParticlesEngineClass());
+
+
+
+	//model load
+	//const aiScene* spaceShipModel = aiImportFile("../textures/SpaceShip.fbx",aiProcessPreset_TargetRealtime_MaxQuality);
+
+	//texture initiation
+	int width, height;
+	unsigned char* img = SOIL_load_image("../textures/particle.png", &width, &height, 0, SOIL_LOAD_RGB);//color
+
+	glGenTextures(1, &particleTexture_);
+	glBindTexture(GL_TEXTURE_2D, particleTexture_);
+
+	if (!img)
+		std::cout << "Not loaded" << sizeof(img) << std::endl;
+
+	if (particleTexture_ == NULL) {
+
+		printf("Error in download '%s'", SOIL_last_result());
+	}
+	else {
+		std::cout << "Texture loaded: " << "size " << sizeof(img) << " height " << height << " width " << width << std::endl;
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
+
+		SOIL_free_image_data(img);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	particles_ptr.reset(new ParticlesEngineClass(particleTexture_));
 	this->addSubObject(particles_ptr);
 
 	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 10.0f, -5.0f));
+
 }
 
 void SpaceShip::privateRender()

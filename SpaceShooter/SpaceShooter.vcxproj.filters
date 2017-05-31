@@ -13,6 +13,9 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{b2711004-bea7-4262-b711-f875be26c7e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="textures">
+      <UniqueIdentifier>{c2f43f4a-eede-42d1-9bb7-1b6dd0cd406d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\app\main.cpp">
@@ -40,9 +43,6 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ParticlesClass.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\shader.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Shader1.cpp">
@@ -89,9 +89,6 @@
     <ClInclude Include="..\include\Shader1.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\ShaderTest.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\Skybox.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -103,34 +100,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\shaders\fixed.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\fixed.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\phong.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\phong.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\red.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\red.vert">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="..\shaders\reflection.frag">
       <Filter>shaders</Filter>
     </None>
     <None Include="..\shaders\reflection.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\brick.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\shaders\brick.vert">
       <Filter>shaders</Filter>
     </None>
     <None Include="..\shaders\bfshader.frag">
@@ -145,5 +118,37 @@
     <None Include="..\shaders\skybox.vert">
       <Filter>shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\textures\colormap.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\colorMap2012.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\heightMap2012.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\particle.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_down.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_east.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_north.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_south.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_up.bmp">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="..\textures\skybox_west.bmp">
+      <Filter>textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
