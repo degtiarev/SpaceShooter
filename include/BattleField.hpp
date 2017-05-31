@@ -7,6 +7,7 @@
 #include <GL/glu.h>
 #include "SceneObject.hpp"
 #include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 #include <iostream>
 #include "Shader1.hpp"
 #include "Skybox.h"
@@ -20,6 +21,7 @@ public:
 
 	int getBattleWidth();
 	int getBattleDepth();
+	void setZpos(float zpos);
 
 protected:
 	virtual void privateInit();

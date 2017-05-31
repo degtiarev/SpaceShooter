@@ -20,8 +20,12 @@ void GameManager::privateInit()
 	skybox_.reset(new Skybox(cam_));
 	this->addSubObject(skybox_);
 
-	bf_.reset(new BattleField());
-	this->addSubObject(bf_);
+	bf1_.reset(new BattleField(battlefieldWidth_, battlefieldDepth_, battlefieldHeight_));
+	this->addSubObject(bf1_);
+
+	bf2_.reset(new BattleField(battlefieldWidth_, battlefieldDepth_, battlefieldHeight_));
+	bf2_->setZpos(battlefieldDepth_);
+	this->addSubObject(bf2_);
 
 	spaceship_.reset(new SpaceShip());
 	this->addSubObject(spaceship_);
@@ -115,6 +119,16 @@ void GameManager::privateUpdate()
 			this->removeSubObject(enemyBulletsArr_.at(i));
 			enemyBulletsArr_.erase(enemyBulletsArr_.begin() + i--);
 		}
+	}
+
+	// BATTLEFIELD flipping
+	if (bf1_->getMatrix()[3].z >= 512)
+	{
+		bf1_->setZpos(2 * battlefieldDepth_);
+	}
+	if (bf2_->getMatrix()[3].z >= 512)
+	{
+		bf2_->setZpos(2 * battlefieldDepth_);
 	}
 
 }

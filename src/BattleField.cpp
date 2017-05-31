@@ -200,5 +200,10 @@ void BattleField::privateRender()
 
 void BattleField::privateUpdate()
 {
+	matrix_ = glm::translate(matrix_, glm::vec3(0.0f, 0.0f, 3.0f));
 }
 
+void BattleField::setZpos(float zpos)
+{
+	this->matrix_ = glm::translate(matrix_, glm::vec3(0.0f, 0.0f, -zpos));
+}

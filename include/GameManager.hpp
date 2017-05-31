@@ -43,7 +43,8 @@ protected:
 	virtual void privateUpdate();
 
 private:
-	std::shared_ptr<BattleField> bf_;
+	std::shared_ptr<BattleField> bf1_;
+	std::shared_ptr<BattleField> bf2_;
 	std::shared_ptr<SpaceShip> spaceship_;
 	std::shared_ptr<Enemy> enemy_;
 	std::shared_ptr<Camera> cam_;
