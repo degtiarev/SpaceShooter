@@ -9,6 +9,7 @@
 #include "ParticlesEngineClass.h"
 #include "SceneObject.hpp"
 #include "Bullet.h"
+#include "Model.h"
 
 class SpaceShip : public SceneObject
 {
@@ -51,6 +52,8 @@ private:
 
 	int laserAmountBullets;
 	int mashineGunAmountBullets;
+
+	std::shared_ptr< Model> myModel;
 
 };
 

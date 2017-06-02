@@ -94,7 +94,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;opengl32.lib;glew32.lib;SOIL.lib;assimp.lib;GLu32.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\app\main.cpp" />
+    <ClCompile Include="..\src\Model.cpp" />
     <ClCompile Include="..\src\BattleField.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\Camera.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="..\src\Water.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Model.h" />
     <ClInclude Include="..\include\BattleField.hpp" />
     <ClInclude Include="..\include\Bullet.h" />
     <ClInclude Include="..\include\Camera.hpp" />

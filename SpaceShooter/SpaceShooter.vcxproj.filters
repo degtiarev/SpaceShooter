@@ -60,6 +60,9 @@
     <ClCompile Include="..\src\Water.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Model.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -102,6 +105,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Water.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Model.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
