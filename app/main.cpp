@@ -45,24 +45,24 @@ void init()//preinitialization before rendering
 	GLfloat LightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 	GLfloat LightPosition[] = { 0.0f, 0.0f, 15.0f, 1.0f };
 
-	glEnable(GL_TEXTURE_2D);
-	glShadeModel(GL_SMOOTH);		 // Enables Smooth Shading
-	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-	glClearDepth(1.0f);				// Depth Buffer Setup
-	glEnable(GL_DEPTH_TEST);		// Enables Depth Testing
-	glDepthFunc(GL_LEQUAL);			// The Type Of Depth Test To Do
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculation
+	//glEnable(GL_TEXTURE_2D);
+	//glShadeModel(GL_SMOOTH);		 // Enables Smooth Shading
+	//glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+	//glClearDepth(1.0f);				// Depth Buffer Setup
+	//glEnable(GL_DEPTH_TEST);		// Enables Depth Testing
+	//glDepthFunc(GL_LEQUAL);			// The Type Of Depth Test To Do
+	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculation
 
 
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);    // Uses default lighting parameters
-	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-	glEnable(GL_NORMALIZE);
+	//glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHT0);    // Uses default lighting parameters
+	//glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+	//glEnable(GL_NORMALIZE);
 
-	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
-	glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
-	glEnable(GL_LIGHT1);
+	//glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
+	//glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
+	//glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
+	//glEnable(GL_LIGHT1);
 
 }
 
@@ -75,6 +75,10 @@ void display()//rendering
 	gm->render();
 
 	printtext(920, 735, "FPS: " + std::to_string(int(counter->fps)));
+
+	printtext(5, 735, "MachineGun: " + std::to_string(gm->getSpaceShip()->getMashineGunAmountBullets()));
+	printtext(5, 700, "Laser: " + std::to_string(gm->getSpaceShip()->getLaserAmountBullets()));
+	printtext(450, 735, "Score: 100");
 
 	// like third-person shooter (camera+ship)
 	if (keyPressed[KEY_ID_W] == true) {

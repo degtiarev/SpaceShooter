@@ -149,8 +149,8 @@ void SpaceShip::privateInit()
 	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 10.0f, -5.0f));
 
 
-	myModel = std::make_shared<Model>("starwars-tie-fighter.obj");
-	myModel->Import3DFromFile();
+	/*myModel = std::make_shared<Model>("starwars-tie-fighter.obj");
+	myModel->Import3DFromFile();*/
 
 
 }
@@ -159,7 +159,7 @@ void SpaceShip::privateRender()
 {
 	glCallList(list_id);
 
-	myModel->DrawGLScene();
+	//myModel->DrawGLScene();
 }
 
 void SpaceShip::privateUpdate()

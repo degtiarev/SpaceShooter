@@ -66,7 +66,7 @@ void Bullet::createBullets()
 	if (type_ == "MachineGun")
 		increment = 0.8f;
 	if (type_ == "Laser")
-		increment == 0.2f;
+		increment = 0.2f;
 
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glColor3f(1.00, 0.00, 0.00);
