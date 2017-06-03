@@ -24,8 +24,6 @@ int mousePosX, mousePosY;
 float moveX, moveY;
 void printtext(int x, int y, std::string String);
 
-float nextShooting;
-const float secondsForShooting = 0.2f;
 
 void init()//preinitialization before rendering
 {
@@ -36,8 +34,7 @@ void init()//preinitialization before rendering
 	GLenum err = glewInit();
 
 	counter = std::make_shared<FPS>();
-	counter->CalculateFrameRate();
-	nextShooting = counter->getCurrentTime() + secondsForShooting;
+
 	gm.reset(new GameManager());
 	gm->init();//game manager initialization
 
@@ -123,23 +120,12 @@ void display()//rendering
 	if (keyPressed[KEY_ID_DOWN] == true) gm->getSpaceShip()->moveDown();
 	if (keyPressed[KEY_ID_FORWARD] == true)  gm->getSpaceShip()->moveForward();
 	if (keyPressed[KEY_ID_BACKWARD] == true) gm->getSpaceShip()->moveBackward();
-
-	if (keyPressed[KEY_ID_Z] == true) {
-
-		if (counter->getCurrentTime() >= nextShooting)
-		{
-			nextShooting += secondsForShooting;
-			gm->weaponFire();
-
-		}
-	}
-
+	if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
 	if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
 	if (keyPressed[KEY_ID_X] == true) {
 		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
 		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
 		std::cout << "CurrentTime: " << counter->getCurrentTime() << std::endl;
-		std::cout << "Next: " << nextShooting << std::endl;
 	}
 
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
@@ -393,6 +379,7 @@ int main(int argc, char** argv)
 }
 void printtext(int x, int y, std::string String)
 {
+	glColor3f(1.0f, 1.0f, 0.0f);
 	char string[64];
 	sprintf(string, "something");
 	//(x,y) is from the bottom left of the window

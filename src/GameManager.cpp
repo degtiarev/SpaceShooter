@@ -4,6 +4,8 @@ GameManager::GameManager()
 {
 	nextEnemy = currentTime + secondsForEnemy;
 	nextShooting = currentTime + secondsForShooting;
+	nextShootingSpaceshipMashineGune = currentTime + secondsForShootingSpaceshipMashineGune;
+	nextShootingSpaceshipLaser = currentTime + secondsForShootingSpaceshipLaser;
 }
 
 GameManager::~GameManager()
@@ -180,15 +182,42 @@ void GameManager::addEnemies()
 
 void GameManager::weaponFire()
 {
-	if (spaceship_->shoot())
+	std::string currentWeapon = spaceship_->getCurrentWeapon();
+
+	if (currentWeapon == "MachineGun")
 	{
-		auto position = spaceship_->getMatrix();
-
-		bullets_ = std::make_shared<Bullet>(*(new Bullet(spaceship_->getWeapon(), position, true, battlefieldDepth_)));	// "Create" bullet
-
-		this->addSubObject(bullets_);																	// Add bullets to the scene
-		bulletsArr_.push_back(bullets_);
+		if (currentTime >= nextShootingSpaceshipMashineGune)
+		{
+			if (spaceship_->shoot())
+			{
+				Shoot();
+				nextShootingSpaceshipMashineGune = currentTime + secondsForShootingSpaceshipMashineGune;
+			}
+		}
 	}
+
+	if (currentWeapon == "Laser")
+	{
+		if (currentTime >= nextShootingSpaceshipLaser)
+		{
+			if (spaceship_->shoot())
+			{
+				Shoot();
+				nextShootingSpaceshipLaser = currentTime + secondsForShootingSpaceshipLaser;
+			}
+		}
+	}
+}
+
+
+void GameManager::Shoot()
+{
+	auto position = spaceship_->getMatrix();
+
+	bullets_ = std::make_shared<Bullet>(*(new Bullet(spaceship_->getCurrentWeapon(), position, true, battlefieldDepth_)));	// "Create" bullet
+
+	this->addSubObject(bullets_);																	// Add bullets to the scene
+	bulletsArr_.push_back(bullets_);
 }
 
 void GameManager::enemyFire(std::shared_ptr<Enemy> enemy_)

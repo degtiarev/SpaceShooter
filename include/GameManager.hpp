@@ -61,11 +61,17 @@ private:
 	const int battlefieldHeight_ = 0;
 	const int battlefieldDepth_ = 512;
 
+	void Shoot();
+
 	float currentTime;
 	float nextEnemy;
 	const int secondsForEnemy = 5;
 	float nextShooting;
 	const float secondsForShooting = 0.5f;
+	float nextShootingSpaceshipMashineGune;
+	const float secondsForShootingSpaceshipMashineGune = 0.1f;
+	float nextShootingSpaceshipLaser;
+	const float secondsForShootingSpaceshipLaser = 0.00005f;
 
 };
 

@@ -5,7 +5,7 @@
 SpaceShip::SpaceShip()
 {
 	this->currentWeaponType = "MachineGun";
-	laserAmountBullets = 100;
+	laserAmountBullets = 500;
 	mashineGunAmountBullets = 100;
 }
 
@@ -49,7 +49,7 @@ void SpaceShip::setWeapon(std::string weaponName)
 	this->currentWeaponType = weaponName;
 }
 
-std::string SpaceShip::getWeapon()
+std::string SpaceShip::getCurrentWeapon()
 {
 	return this->currentWeaponType;
 }
@@ -87,7 +87,7 @@ void SpaceShip::reload()
 		mashineGunAmountBullets = 100;
 
 	if (currentWeaponType == "Laser")
-		laserAmountBullets = 100;
+		laserAmountBullets = 500;
 }
 
 void SpaceShip::privateInit()

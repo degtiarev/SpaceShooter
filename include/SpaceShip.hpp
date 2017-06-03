@@ -28,7 +28,7 @@ public:
 
 	void reload();
 	void setWeapon(std::string weaponName);
-	std::string getWeapon();
+	std::string getCurrentWeapon();
 	int getLaserAmountBullets();
 	int getMashineGunAmountBullets();
 	bool shoot();
