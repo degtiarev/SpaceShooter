@@ -109,11 +109,6 @@ void SpaceShip::privateInit()
 	glEndList();//end new list
 
 
-
-
-	//model load
-	//const aiScene* spaceShipModel = aiImportFile("../textures/SpaceShip.fbx",aiProcessPreset_TargetRealtime_MaxQuality);
-
 	//texture initiation
 	int width, height;
 	unsigned char* img = SOIL_load_image("../textures/particle.png", &width, &height, 0, SOIL_LOAD_RGB);//color
@@ -143,14 +138,14 @@ void SpaceShip::privateInit()
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	particles_ptr.reset(new ParticlesEngineClass(particleTexture_));
-	this->addSubObject(particles_ptr);
+	/*particles_ptr.reset(new ParticlesEngineClass(particleTexture_));
+	this->addSubObject(particles_ptr);*/
 
 	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 10.0f, -5.0f));
 
 
-	//myModel = std::make_shared<Model>("../Models/starwars-tie-fighter.obj");
-	//myModel->Import3DFromFile();
+	myModel = std::make_shared<Model>("../Models/starwars-tie-fighter.obj");
+	myModel->Import3DFromFile();
 
 
 }
@@ -159,7 +154,7 @@ void SpaceShip::privateRender()
 {
 	glCallList(list_id);
 
-	/*myModel->DrawGLScene();*/
+	myModel->DrawGLScene();
 }
 
 void SpaceShip::privateUpdate()

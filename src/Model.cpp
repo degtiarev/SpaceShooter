@@ -215,11 +215,34 @@ void  Model::recursive_render(const struct aiScene *sc, const struct aiNode* nd,
 int  Model::DrawGLScene()				//Here's where we do all the drawing
 {
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear The Screen And The Depth Buffer
+	GLfloat LightAmbient[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
+	GLfloat LightDiffuse[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	GLfloat LightPosition[4] = { 0.0f, 0.0f, 15.0f, 1.0f };
+
+
+	glEnable(GL_TEXTURE_2D);
+	//glShadeModel(GL_SMOOTH);		 // Enables Smooth Shading
+	glClearColor(1.0f, 1.0f, 0.0f, 0.0f);
+	glClearDepth(1.0f);				// Depth Buffer Setup
+	glEnable(GL_DEPTH_TEST);		// Enables Depth Testing
+	glDepthFunc(GL_LEQUAL);			// The Type Of Depth Test To Do
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculation
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);    // Uses default lighting parameters
+	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
+	glEnable(GL_NORMALIZE);
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);
+	glLightfv(GL_LIGHT1, GL_POSITION, LightPosition);
+	glEnable(GL_LIGHT1);
+
+
 	glLoadIdentity();				// Reset MV Matrix
 
 
 	glTranslatef(0.0f, -2.0f, -5.0f);	// Move 40 Units And Into The Screen
-
 
 	//glRotatef(xrot, 1.0f, 0.0f, 0.0f);
 	//glRotatef(yrot, 0.0f, 1.0f, 0.0f);
@@ -230,6 +253,13 @@ int  Model::DrawGLScene()				//Here's where we do all the drawing
 	//xrot+=0.3f;
 	//yrot += 0.2f;
 	//zrot+=0.4f;
+
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_LIGHTING);
+	glDisable(GL_LIGHT0);
+	glDisable(GL_NORMALIZE);
+	glDisable(GL_LIGHT1);
+	
 
 	return TRUE;					// okay
 }
