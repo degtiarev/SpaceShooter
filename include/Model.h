@@ -46,7 +46,7 @@ private:
 
 
 	// The default hard-coded path. Can be overridden by supplying a path through the command line.
-	const std::string modelpath = "starwars-tie-fighter.obj";
+	std::string modelpath;
 
 	GLfloat		xrot;
 	GLfloat		yrot;

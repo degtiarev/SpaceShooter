@@ -2,8 +2,7 @@
 
 Model::Model(std::string fileName)
 {
-
-
+	modelpath = fileName;
 }
 
 Model::~Model()
@@ -219,12 +218,12 @@ int  Model::DrawGLScene()				//Here's where we do all the drawing
 	glLoadIdentity();				// Reset MV Matrix
 
 
-	glTranslatef(0.0f, 0.0f, -5.0f);	// Move 40 Units And Into The Screen
+	glTranslatef(0.0f, -2.0f, -5.0f);	// Move 40 Units And Into The Screen
 
 
-	glRotatef(xrot, 1.0f, 0.0f, 0.0f);
-	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-	glRotatef(zrot, 0.0f, 0.0f, 1.0f);
+	//glRotatef(xrot, 1.0f, 0.0f, 0.0f);
+	//glRotatef(yrot, 0.0f, 1.0f, 0.0f);
+	//glRotatef(zrot, 0.0f, 0.0f, 1.0f);
 
 	recursive_render(scene, scene->mRootNode, 0.5);
 
