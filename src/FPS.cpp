@@ -6,6 +6,7 @@
 FPS::FPS()
 {
 	fps = 0;
+	startTime = GetTickCount() * 0.001f;
 }
 
 
@@ -22,7 +23,7 @@ void FPS::CalculateFrameRate()
 	static float lastTime = 0.0f;           // It stores the time elapsed since the last frame
 	static char strFrameRate[50] = { 0 };   // Output string
 											// Here we get the current tick count and multiply it by 0.001 to convert from milliseconds to seconds.
-	float currentTime = GetTickCount() * 0.001f;
+	currentTime = GetTickCount() * 0.001f;
 
 	// Increase the frame counter
 	++framesPerSecond;
@@ -40,4 +41,16 @@ void FPS::CalculateFrameRate()
 		// Reset the FPS.
 		framesPerSecond = 0;
 	}
+
 }
+
+float FPS::getCurrentTime()
+{
+	return  currentTime - startTime;
+}
+
+float FPS::getFPS()
+{
+	return  fps;
+}
+

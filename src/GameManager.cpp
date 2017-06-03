@@ -2,6 +2,8 @@
 
 GameManager::GameManager()
 {
+	nextEnemy = currentTime + secondsForEnemy;
+	nextShooting = currentTime + secondsForShooting;
 }
 
 GameManager::~GameManager()
@@ -60,11 +62,17 @@ void GameManager::privateUpdate()
 		}
 	}
 	//Enemy fire
-	for (int i = 0; i < attackingEnemyArr_.size(); i++)
-	{
-		enemyFire(attackingEnemyArr_.at(i));
-	}
 
+	// enemy appears every 5 seconds
+	if (currentTime >= nextShooting)
+	{
+		nextShooting += secondsForShooting;
+
+		for (int i = 0; i < attackingEnemyArr_.size(); i++)
+		{
+			enemyFire(attackingEnemyArr_.at(i));
+		}
+	}
 	for (int i = 0; i < enemyBulletsArr_.size(); i++)
 	{
 
@@ -131,6 +139,13 @@ void GameManager::privateUpdate()
 		bf2_->setZpos(2 * battlefieldDepth_);
 	}
 
+	// enemy appears every 5 seconds
+	if (currentTime == nextEnemy)
+	{
+		addEnemies();
+		nextEnemy += secondsForEnemy;
+	}
+
 }
 
 std::shared_ptr<Camera> GameManager::getCam()
@@ -185,3 +200,7 @@ void GameManager::enemyFire(std::shared_ptr<Enemy> enemy_)
 
 }
 
+void GameManager::setCurrentTime(float time)
+{
+	currentTime = time;
+}

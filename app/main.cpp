@@ -24,6 +24,9 @@ int mousePosX, mousePosY;
 float moveX, moveY;
 void printtext(int x, int y, std::string String);
 
+float nextShooting;
+const float secondsForShooting = 0.2f;
+
 void init()//preinitialization before rendering
 {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -33,7 +36,8 @@ void init()//preinitialization before rendering
 	GLenum err = glewInit();
 
 	counter = std::make_shared<FPS>();
-
+	counter->CalculateFrameRate();
+	nextShooting = counter->getCurrentTime() + secondsForShooting;
 	gm.reset(new GameManager());
 	gm->init();//game manager initialization
 
@@ -74,11 +78,13 @@ void display()//rendering
 	counter->CalculateFrameRate(); //start of fps counter
 	gm->render();
 
-	printtext(920, 735, "FPS: " + std::to_string(int(counter->fps)));
+	printtext(920, 735, "FPS: " + std::to_string(int(counter->getFPS())));
 
 	printtext(5, 735, "MachineGun: " + std::to_string(gm->getSpaceShip()->getMashineGunAmountBullets()));
 	printtext(5, 700, "Laser: " + std::to_string(gm->getSpaceShip()->getLaserAmountBullets()));
 	printtext(450, 735, "Score: 100");
+
+	gm->setCurrentTime(counter->getCurrentTime());
 
 	// like third-person shooter (camera+ship)
 	if (keyPressed[KEY_ID_W] == true) {
@@ -118,11 +124,22 @@ void display()//rendering
 	if (keyPressed[KEY_ID_FORWARD] == true)  gm->getSpaceShip()->moveForward();
 	if (keyPressed[KEY_ID_BACKWARD] == true) gm->getSpaceShip()->moveBackward();
 
-	if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
+	if (keyPressed[KEY_ID_Z] == true) {
+
+		if (counter->getCurrentTime() >= nextShooting)
+		{
+			nextShooting += secondsForShooting;
+			gm->weaponFire();
+
+		}
+	}
+
 	if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
 	if (keyPressed[KEY_ID_X] == true) {
 		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
 		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
+		std::cout << "CurrentTime: " << counter->getCurrentTime() << std::endl;
+		std::cout << "Next: " << nextShooting << std::endl;
 	}
 
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");

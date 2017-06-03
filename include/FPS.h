@@ -6,7 +6,13 @@ public:
 	FPS();
 	~FPS();
 
-	double fps;
-
 	void CalculateFrameRate();
+	float getCurrentTime();
+	float getFPS();
+
+private:
+	double fps;
+	float currentTime;
+	float startTime;
+
 };

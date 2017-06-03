@@ -31,6 +31,8 @@ public:
 	void weaponFire();
 	void enemyFire(std::shared_ptr<Enemy> enemy_);
 
+	void setCurrentTime(float time);
+
 	template <typename T1, typename T2, typename T3>
 
 	inline bool findCollisions(T1 obj1, T2 obj2, T3 Depth) {
@@ -58,5 +60,12 @@ private:
 	const int battlefieldWidth_ = 32;
 	const int battlefieldHeight_ = 0;
 	const int battlefieldDepth_ = 512;
+
+	float currentTime;
+	float nextEnemy;
+	const int secondsForEnemy = 5;
+	float nextShooting;
+	const float secondsForShooting = 0.5f;
+
 };
 
