@@ -63,6 +63,9 @@
     <ClCompile Include="..\src\Model.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Sphere.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\BattleField.hpp">
@@ -110,6 +113,9 @@
     <ClInclude Include="..\include\Model.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Sphere.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\reflection.frag">
@@ -134,6 +140,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="..\shaders\water.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\phong.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\shaders\phong.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

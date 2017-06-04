@@ -45,7 +45,7 @@ public:
 	float speed_;
 	float life_;
 	float armor_;
-	bool isActive_ = true;
+	bool isActive = true;
 
 
 

@@ -12,6 +12,7 @@
 #include "Bullet.h"
 #include "Skybox.h"
 #include "Water.h"
+#include "Sphere.h"
 
 
 class GameManager : public SceneObject
@@ -64,6 +65,7 @@ private:
 	std::shared_ptr<Bullet> bullets_;
 	std::shared_ptr<Skybox> skybox_;
 	std::shared_ptr<Water> water_;
+	std::shared_ptr<Sphere> sphere_;
 
 	std::vector <std::shared_ptr<Enemy>> enemyArr_;
 	std::vector <std::shared_ptr<Enemy>> attackingEnemyArr_;
@@ -79,7 +81,7 @@ private:
 
 	float currentTime;
 	float nextEnemy;
-	const int secondsForEnemy = 1;
+	int secondsForEnemy = 1;
 	float nextShooting;
 	const float secondsForShooting = 0.5f;
 	float nextShootingSpaceshipMashineGune;

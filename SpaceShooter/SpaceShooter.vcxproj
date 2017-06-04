@@ -157,6 +157,7 @@
     <ClCompile Include="..\src\SpaceShip.cpp" />
     <ClCompile Include="..\src\Enemy.cpp" />
     <ClCompile Include="..\src\FPS.cpp" />
+    <ClCompile Include="..\src\Sphere.cpp" />
     <ClCompile Include="..\src\Water.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,11 +175,14 @@
     <ClInclude Include="..\include\SpaceShip.hpp" />
     <ClInclude Include="..\include\Enemy.h" />
     <ClInclude Include="..\include\FPS.h" />
+    <ClInclude Include="..\include\Sphere.h" />
     <ClInclude Include="..\include\Water.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\bfshader.frag" />
     <None Include="..\shaders\bfshader.vert" />
+    <None Include="..\shaders\phong.frag" />
+    <None Include="..\shaders\phong.vert" />
     <None Include="..\shaders\reflection.frag" />
     <None Include="..\shaders\reflection.vert" />
     <None Include="..\shaders\skybox.frag" />

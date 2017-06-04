@@ -41,6 +41,9 @@ void GameManager::privateInit()
 	water_.reset(new Water(skybox_));
 	this->addSubObject(water_);
 
+	sphere_.reset(new Sphere());
+	this->addSubObject(sphere_);
+
 }
 
 void GameManager::privateRender()
@@ -165,7 +168,7 @@ void GameManager::privateUpdate()
 	handleCollEnemyVsBullets(bulletsArr_, attackingEnemyArr_);
 	//handleCollAmmoVsBullets(ammogun_, bulletsArr_);
 	handleCollSpaceshipVsBullets(spaceship_, enemyBulletsArr_);
-	std::cout << enemyArr_.size() << std::endl;
+	//std::cout << enemyArr_.size() << std::endl;
 
 }
 
@@ -203,7 +206,6 @@ void GameManager::addEnemies()
 		enemy_->setAmmo(100);
 		attackingEnemyArr_.push_back(enemy_);
 		this->addSubObject(enemy_);
-
 
 		enemyCounter_ = 0;
 	}
@@ -295,7 +297,7 @@ bool GameManager::findCollSpaceShipVsEnemy(std::shared_ptr<SpaceShip> spaceship,
 
 			bool collX = (obj1Pos[0] + radius1 >= obj2Pos[0] && obj2Pos[0] + radius2 >= obj1Pos[0]);
 			bool collY = (obj1Pos[1] + radius1 >= obj2Pos[1] && obj2Pos[1] + radius2 >= obj1Pos[1]);
-			enemy->isActive_ = !(collX&&collY);
+			enemy->isActive = !(collX&&collY);
 
 			return (collX&&collY);
 
@@ -309,7 +311,7 @@ bool GameManager::findCollSpaceShipVsEnemy(std::shared_ptr<SpaceShip> spaceship,
 bool GameManager::findCollEnemyVsBullets(std::shared_ptr<Enemy> enemy, std::shared_ptr<Bullet> bullets)
 {
 	//if ((enemy != nullptr) && (bullets != nullptr)){
-	if (enemy->isActive_) {
+	if (enemy->isActive) {
 		glm::vec3 obj1Pos = bullets->getPos();
 		glm::vec3 obj2Pos = enemy->getPos();
 
@@ -323,7 +325,7 @@ bool GameManager::findCollEnemyVsBullets(std::shared_ptr<Enemy> enemy, std::shar
 			bool collY = (obj1Pos[1] + radius1 >= obj2Pos[1] && obj2Pos[1] + radius2 >= obj1Pos[1]);
 
 			if (enemy->life_ <= 0) {
-				enemy->isActive_ = !(collX&&collY);
+				enemy->isActive = !(collX&&collY);
 			}
 			//std::cout << enemy->isActive_ << std::endl;
 			return (collX&&collY);
