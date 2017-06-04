@@ -5,23 +5,44 @@
 SpaceShip::SpaceShip()
 {
 	this->currentWeaponType = "MachineGun";
-	laserAmountBullets = 500;
 	mashineGunAmountBullets = 100;
+	laserAmountBullets = 50;
+	this->life_ = 200;
+	this->armor_ = 100;
+	maxX = 15;
+	minX = 0;
+	maxY = 15;
+	minY = 0;
+	maxZ = 15;
+	minZ = 0;
 }
 
 SpaceShip::~SpaceShip()
 {
 }
 
+//void SpaceShip::moveRight()
+//{
+//	matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
+//}
+//
+//void SpaceShip::moveLeft()
+//{
+//	matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
+//}
+
 void SpaceShip::moveRight()
 {
-	matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
+	if (matrix_[3][0] <= 50.f)
+		matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
 }
 
 void SpaceShip::moveLeft()
 {
-	matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
+	if (matrix_[3][0] >= -50.f)
+		matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
 }
+
 
 void SpaceShip::moveUp()
 {
@@ -138,8 +159,8 @@ void SpaceShip::privateInit()
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	/*particles_ptr.reset(new ParticlesEngineClass(particleTexture_));
-	this->addSubObject(particles_ptr);*/
+	///*particles_ptr.reset(new ParticlesEngineClass(particleTexture_));
+	//this->addSubObject(particles_ptr);*/
 
 	matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 10.0f, -5.0f));
 
@@ -163,5 +184,65 @@ void SpaceShip::privateUpdate()
 
 void SpaceShip::getSpaceShipPosition()
 {
+}
+
+// get position
+glm::vec3 SpaceShip::getPos() const
+{
+	return glm::vec3(matrix_[3][0], matrix_[3][1], matrix_[3][2]);
+}
+
+
+float SpaceShip::getRadius() const
+{
+	auto eps = 1e-5;
+
+	float centX1, centY1, centZ1, radius;
+
+	if ((minX + maxX) / 2 < eps) centX1 = 0;
+	else centX1 = (minX + maxX) / 2;
+
+	if ((minY + maxY) / 2 < eps) centY1 = 0;
+	else centY1 = (minY + maxY) / 2;
+
+	float distanceX1 = 0.0f;
+	float xVarMax1 = std::abs(maxX) - std::abs(centX1);
+	float xVarMin1 = std::abs(minX) - std::abs(centX1);
+
+	if (xVarMax1 > xVarMin1) distanceX1 = xVarMax1;
+	else distanceX1 = xVarMin1;
+
+	float distanceY1 = 0.0f;
+	float yVarMax1 = std::abs(maxY) - std::abs(centY1);
+	float yVarMin1 = std::abs(minY) - std::abs(centY1);
+
+	if (yVarMax1 > yVarMin1) distanceY1 = yVarMax1;
+	else distanceY1 = yVarMin1;
+
+	if (distanceX1 > distanceY1) radius = distanceX1;
+	else radius = distanceY1;
+
+	return radius;
+
+}
+
+float SpaceShip::getLife()
+{
+	return this->life_;
+}
+
+float SpaceShip::getArmor()
+{
+	return this->armor_;
+}
+
+void SpaceShip::setLife(float damage)
+{
+	this->life_ -= damage;
+}
+
+void SpaceShip::setArmor(float damage)
+{
+	this->armor_ -= damage;
 }
 

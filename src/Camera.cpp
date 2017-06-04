@@ -29,11 +29,13 @@ void Camera::privateUpdate()
 
 void Camera::moveRight()
 {
-	matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
+	if (matrix_[3][0] >= -50.f)
+		matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
 }
 void Camera::moveLeft()
 {
-	matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
+	if (matrix_[3][0] <= 50.f)
+		matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
 }
 void Camera::moveUp()
 {

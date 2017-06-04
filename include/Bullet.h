@@ -21,6 +21,10 @@ public:
 	int bullets;
 	std::vector< std::vector<float>> getVertexArr();
 
+	glm::vec3 getPos() const;
+	float getRadius() const;
+
+	int damage_;
 
 
 protected:
@@ -36,6 +40,14 @@ private:
 	glm::vec3 position_;
 	bool friendly_;
 	int depth_;
+
+
+	float maxX;
+	float minX;
+	float maxY;
+	float minY;
+	float maxZ;
+	float minZ;
 
 	std::vector< std::vector<float>> vertexArray_; //vertex array
 };

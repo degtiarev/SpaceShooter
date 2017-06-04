@@ -13,11 +13,16 @@
 #include "Skybox.h"
 #include "Water.h"
 
+
 class GameManager : public SceneObject
 {
 public:
 	GameManager();
 	~GameManager();
+
+	int count = 0;
+	int score_ = 0;
+
 
 	std::shared_ptr<Camera> getCam();
 	std::shared_ptr<SpaceShip> getSpaceShip();
@@ -33,11 +38,17 @@ public:
 
 	void setCurrentTime(float time);
 
-	template <typename T1, typename T2, typename T3>
+	bool findCollSpaceShipVsEnemy(std::shared_ptr<SpaceShip> spaceship, std::shared_ptr<Enemy> enemy);
+	bool findCollEnemyVsBullets(std::shared_ptr<Enemy> enemy, std::shared_ptr<Bullet> bullets);
+	bool findCollSpaceShipVsBullets(std::shared_ptr<SpaceShip> spaceship, std::shared_ptr<Bullet> bullets);
+	//bool findCollAmmoVsBullets(std::shared_ptr<AmmoGun> ammo, std::shared_ptr<Bullets> bullets);
 
-	inline bool findCollisions(T1 obj1, T2 obj2, T3 Depth) {
-		return true;
-	}
+	void handleCollEnemyVsBullets(std::vector <std::shared_ptr<Bullet>> bulletsArr, std::vector <std::shared_ptr<Enemy>> enemyArr);
+	//void handleCollAmmoVsBullets(std::shared_ptr<AmmoGun> ammo, std::vector<std::shared_ptr<Bullets>> bulletsArr);
+	void handleCollSpaceshipVsBullets(std::shared_ptr<SpaceShip> spaceship, std::vector<std::shared_ptr<Bullet>> bulletsArr);
+
+
+
 
 protected:
 	virtual void privateInit();
@@ -61,11 +72,14 @@ private:
 	const int battlefieldHeight_ = 0;
 	const int battlefieldDepth_ = 512;
 
+	int enemyCounter_ = 0;
+
+
 	void Shoot();
 
 	float currentTime;
 	float nextEnemy;
-	const int secondsForEnemy = 5;
+	const int secondsForEnemy = 1;
 	float nextShooting;
 	const float secondsForShooting = 0.5f;
 	float nextShootingSpaceshipMashineGune;

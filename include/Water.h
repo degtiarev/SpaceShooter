@@ -20,6 +20,7 @@ class Water : public SceneObject
 public:
 	Water(std::shared_ptr<Skybox> skybox_);
 	~Water();
+	void setZpos(float zpos);
 protected:
 	virtual void privateInit();
 	virtual void privateRender();

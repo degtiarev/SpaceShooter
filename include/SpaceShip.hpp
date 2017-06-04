@@ -25,6 +25,9 @@ public:
 	void moveBackward();
 	void moveForward();
 
+	glm::vec3 getPos() const;
+	float getRadius() const;
+
 
 	void reload();
 	void setWeapon(std::string weaponName);
@@ -32,6 +35,20 @@ public:
 	int getLaserAmountBullets();
 	int getMashineGunAmountBullets();
 	bool shoot();
+
+	float getLife();
+	float getArmor();
+
+	void setLife(float damage);
+	void setArmor(float damage);
+
+
+	float maxX;
+	float minX;
+	float maxY;
+	float minY;
+	float maxZ;
+	float minZ;
 
 protected:
 	void privateInit();
@@ -41,6 +58,9 @@ protected:
 
 private:
 	float speed_;
+	float life_;
+	float armor_;
+
 
 	GLuint textureName_;
 	std::string currentWeaponType;

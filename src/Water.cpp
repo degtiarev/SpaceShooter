@@ -64,7 +64,7 @@ void Water::privateInit()
 	glUniform1f(glGetUniformLocation(shader_.getProg(), "waveWidth"), waveWidth_);
 	glUniform1f(glGetUniformLocation(shader_.getProg(), "waveHeight"), waveHeight_);
 	//shaderInit(shader_, 0);
-	matrix_ = glm::translate(matrix_, glm::vec3(0.0f, -52.0f, -100.0f));
+	matrix_ = glm::translate(matrix_, glm::vec3(0.0f, -52.0f, -70.0f));
 	shader_.disable();
 
 
@@ -143,7 +143,7 @@ glm::vec3 Water::getStep() const
 void Water::createArrays()
 {
 	int CONST_SIZE_X = 32;
-	int CONST_SIZE_Z = 64;
+	int CONST_SIZE_Z = 512;
 	float x_coord = 0.0;
 	float z_coord = 0.0;
 	// Create vertex array
@@ -202,4 +202,9 @@ void Water::shaderRender(std::shared_ptr<Skybox> skybox, std::vector<unsigned in
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisable(GL_PRIMITIVE_RESTART);
+}
+
+void Water::setZpos(float zpos)
+{
+	this->matrix_ = glm::translate(matrix_, glm::vec3(0.0f, 0.0f, -zpos));
 }

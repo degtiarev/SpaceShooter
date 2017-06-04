@@ -259,7 +259,7 @@ int  Model::DrawGLScene()				//Here's where we do all the drawing
 	glDisable(GL_LIGHT0);
 	glDisable(GL_NORMALIZE);
 	glDisable(GL_LIGHT1);
-	
+
 
 	return TRUE;					// okay
 }

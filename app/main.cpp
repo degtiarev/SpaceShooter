@@ -55,14 +55,16 @@ void display()//rendering
 
 	printtext(5, 735, "MachineGun: " + std::to_string(gm->getSpaceShip()->getMashineGunAmountBullets()));
 	printtext(5, 700, "Laser: " + std::to_string(gm->getSpaceShip()->getLaserAmountBullets()));
-	printtext(450, 735, "Score: 100");
+	printtext(5, 665, "Life: " + std::to_string((int)gm->getSpaceShip()->getLife()));
+	printtext(5, 630, "Armor: " + std::to_string((int)gm->getSpaceShip()->getArmor()));
+	printtext(450, 735, "Score: " + std::to_string((int)gm->score_));
 
 	gm->setCurrentTime(counter->getCurrentTime());
 
 	// like third-person shooter (camera+ship)
 	if (keyPressed[KEY_ID_W] == true) {
-		gm->getCam()->moveForward();
-		gm->getSpaceShip()->moveForward();
+		//	gm->getCam()->moveForward();
+		//	gm->getSpaceShip()->moveForward();
 	}
 
 	if (keyPressed[KEY_ID_A] == true) {
@@ -76,16 +78,16 @@ void display()//rendering
 	}
 
 	if (keyPressed[KEY_ID_S] == true) {
-		gm->getSpaceShip()->moveBackward();
-		gm->getCam()->moveBackward();
+		//gm->getSpaceShip()->moveBackward();
+		//gm->getCam()->moveBackward();
 	}
 
 	if (keyPressed[KEY_ID_SPACE] == true) {
-		gm->getCam()->moveUp();
+		//	gm->getCam()->moveUp();
 	}
 
 	if (keyPressed[KEY_ID_C] == true) {
-		gm->getCam()->moveDown();
+		//	gm->getCam()->moveDown();
 	}
 
 
@@ -107,7 +109,7 @@ void display()//rendering
 	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
 	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
 	if (keyPressed[KEY_ID_O] == true) gm->addEnemies();
-	if (keyPressed[KEY_ID_P] == true) gm->getEnemy()->move();
+	//if (keyPressed[KEY_ID_P] == true) gm->getEnemy()->move();
 
 	glutSwapBuffers();//swap buffer objects ?
 	glutPostRedisplay();
