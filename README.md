@@ -36,10 +36,15 @@
 ## Gameplay ##
 The player starting the game can control the spaceship (moving right and left, changing weapon, shooting and reloading). The player has 2 different types of weapons: Laser, which is more condensed but has less damage and Machinegun, which has more delay between shots, but more damage. Enemies has only Machinegun. Killing the enemies adds the score and the frequency of appearing of enemies. If enemy hits the player, it takes away the health or armor. The game finishes when the player does not have any armor and health. In the end the player sees the statistics of game.
 
-## Video ##
+## Video of Gameplay ##
 
+[Vimeo](https://vimeo.com/220261227)
 
 ## Binaries ##
+
+To run the game you need to unarchive all files from the folder and run SpaceShooter.exe from the folder of Debug.
+
+[Google Disk](https://drive.google.com/open?id=0B7TBIG1drZQxRk9sWEdkblhtY0U)
 
 ## Screenshots ##
 ![Capture.PNG](https://bitbucket.org/repo/MrgdBdr/images/3850406829-Capture.PNG)
