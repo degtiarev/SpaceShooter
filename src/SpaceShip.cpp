@@ -21,16 +21,6 @@ SpaceShip::~SpaceShip()
 {
 }
 
-//void SpaceShip::moveRight()
-//{
-//	matrix_ = glm::translate(matrix_, glm::vec3(5.0f, 0.0f, 0.0f));
-//}
-//
-//void SpaceShip::moveLeft()
-//{
-//	matrix_ = glm::translate(matrix_, glm::vec3(-5.0f, 0.0f, 0.0f));
-//}
-
 void SpaceShip::moveRight()
 {
 	if (matrix_[3][0] <= 50.f)
@@ -174,7 +164,6 @@ void SpaceShip::privateInit()
 void SpaceShip::privateRender()
 {
 	//glCallList(list_id);
-
 	myModel->DrawGLScene();
 }
 

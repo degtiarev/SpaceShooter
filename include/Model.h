@@ -36,15 +36,11 @@ public:
 protected:
 
 private:
-
-
 	void recursive_render(const struct aiScene *sc, const struct aiNode* nd, float scale);
 	void apply_material(const aiMaterial *mtl);
 	void color4_to_float4(const aiColor4D *c, float f[4]);
 	void set_float4(float f[4], float a, float b, float c, float d);
 	void Color4f(const aiColor4D *color);
-
-
 
 	// The default hard-coded path. Can be overridden by supplying a path through the command line.
 	std::string modelpath;
@@ -52,7 +48,6 @@ private:
 	GLfloat		xrot;
 	GLfloat		yrot;
 	GLfloat		zrot;
-
 
 	GLfloat LightAmbient[4] = { 0.5f, 0.5f, 0.5f, 1.0f };
 	GLfloat LightDiffuse[4] = { 1.0f, 1.0f, 1.0f, 1.0f };

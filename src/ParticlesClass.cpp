@@ -10,5 +10,3 @@ ParticlesClass::ParticlesClass()
 ParticlesClass::~ParticlesClass()
 {
 }
-
-

@@ -143,7 +143,6 @@ void Enemy::setAmmo(int ammo)
 
 void Enemy::privateInit()
 {
-
 	list_id = glGenLists(1);
 	glNewList(list_id, GL_COMPILE);
 	createEnemy();
@@ -151,47 +150,14 @@ void Enemy::privateInit()
 
 	//myModel1 = std::make_shared<Model>("../Models/1.blend");
 	//myModel1->Import3DFromFile();
-
-
 }
 
 void Enemy::privateRender()
 {
-	//glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D, textureName_);
-
 	glCallList(list_id);
 	glFlush();
 
-	//glColor3f(1.0f, 1.0f, 0.0f);
-	//float size = 5.0f;
-
-	//glBegin(GL_TRIANGLES);
-	//glNormal3f(5.0f, 5.0f, -512.0f);
-
-	//glVertex3f(-5.0f, height_, zStart_);
-	//glVertex3f(5.0f, height_, zStart_);
-	//glVertex3f(5.0f, height_ + 5.0f, zStart_);
-
-
-	//glEnd();
-
-
-
-	//matrix_ = glm::translate(glm::mat4(), glm::vec3(0.0f, 15.0f, z_coord));
-	//glEnableVertexAttribArray(0);
-
-	//glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-	//glDrawArrays(GL_TRIANGLES, 0, 3);
-	////
-	//glDisableVertexAttribArray(0);
-
-	//glDisable(GL_TEXTURE_2D);
-
-
-
-//	myModel1->DrawGLScene();
+	//	myModel1->DrawGLScene();
 
 }
 
@@ -212,13 +178,6 @@ void Enemy::privateUpdate()
 
 	if (xPos_ == max_x) checkFlag = true;
 	if (xPos_ == min_x) checkFlag = false;
-
-	//from 0 to 512
-	//std::cout << matrix_[3][2] << std::endl;
-	//std::cout << matrix_[3][0] <<" "<< matrix_[3][1] << std::endl;
-	//std::cout << getRadius() << std::endl;
-	//boom();
-	//if (particles_ptr->partlife <= 0) this->removeSubObject(particles_ptr);
 
 }
 

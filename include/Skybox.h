@@ -9,9 +9,7 @@
 #include "Shader1.hpp"
 #include "Camera.hpp"
 #include "SOIL.h"
-
 #include "glm/glm.hpp"
-
 
 
 class Skybox : public SceneObject
@@ -21,7 +19,6 @@ public:
 	~Skybox();
 
 	GLuint getTextures();
-
 
 protected:
 	virtual void privateInit();

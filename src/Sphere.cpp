@@ -21,7 +21,6 @@ void Sphere::privateInit()
 
 	myShader.disable();
 
-
 	matrix_ = glm::translate(matrix_, glm::vec3(-120, 120, -200));
 }
 
@@ -30,8 +29,6 @@ void Sphere::privateRender()
 	myShader.enable();
 	glutSolidSphere(20.0, 150, 150);
 	myShader.disable();
-
-
 }
 
 void Sphere::privateUpdate()

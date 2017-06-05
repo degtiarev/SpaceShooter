@@ -56,6 +56,4 @@ private:
 
 	void shaderRender(std::shared_ptr<Skybox> skybox, std::vector<unsigned int> indexArray);
 
-
-
 };

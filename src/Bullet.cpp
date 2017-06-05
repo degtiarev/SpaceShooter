@@ -83,8 +83,8 @@ void Bullet::createBullets()
 	}
 	if (type_ == "Laser")
 	{
-		increment = 0.2f;
-		glColor3f(0.00, 1.00, 0.00);
+		increment = 0.3f;
+		glColor3f(1, 0.5, 0);
 	}
 
 	glBegin(GL_QUADS);

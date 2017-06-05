@@ -50,7 +50,6 @@ public:
 
 
 
-
 protected:
 	virtual void privateInit();
 	virtual void privateRender();

@@ -26,8 +26,6 @@ protected:
 
 	glm::vec3 translateVec_;
 
-
-
 private:
 
 	Shader myShader;

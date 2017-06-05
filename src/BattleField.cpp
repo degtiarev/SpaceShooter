@@ -186,8 +186,6 @@ void BattleField::privateRender()
 	//texture	
 
 
-
-
 	glActiveTexture(GL_TEXTURE1);
 	glDisable(GL_TEXTURE_2D);
 
