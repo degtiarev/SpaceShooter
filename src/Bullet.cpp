@@ -5,11 +5,11 @@ Bullet::Bullet(std::string type, glm::mat4 position, bool friendly, int depth)
 	this->type_ = type;
 	if (type_ == "MachineGun") {
 		life_ = 100;
-		damage_ = 1;
+		damage_ = 20;
 	}
 	if (type_ == "Laser") {
-		life_ = 200;
-		damage_ = 2;
+		life_ = 150;
+		damage_ = 1;
 	}
 	this->position_ = position[3];
 	this->friendly_ = friendly;
@@ -84,7 +84,7 @@ void Bullet::createBullets()
 	if (type_ == "Laser")
 	{
 		increment = 0.2f;
-		glColor3f(1.00, 1.00, 0.00);
+		glColor3f(0.00, 1.00, 0.00);
 	}
 
 	glBegin(GL_QUADS);

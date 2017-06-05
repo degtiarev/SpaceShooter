@@ -22,7 +22,9 @@ int window;
 bool keyPressed[30];
 int mousePosX, mousePosY;
 float moveX, moveY;
-void printtext(int x, int y, std::string String);
+void printtext(int x, int y, std::string String, std::vector<float> color);
+bool gameIsPlaying = true;
+float totalPlayedSeconds = 0;
 
 
 void init()//preinitialization before rendering
@@ -50,66 +52,86 @@ void display()//rendering
 	gm->update(1);
 	counter->CalculateFrameRate(); //start of fps counter
 	gm->render();
+	if (gm->getSpaceShip()->getLife() == 0)
+	{
+		gameIsPlaying = false;
+		if (totalPlayedSeconds == 0) totalPlayedSeconds = counter->getCurrentTime();
+	}
 
-	printtext(920, 735, "FPS: " + std::to_string(int(counter->getFPS())));
 
-	printtext(5, 735, "MachineGun: " + std::to_string(gm->getSpaceShip()->getMashineGunAmountBullets()));
-	printtext(5, 700, "Laser: " + std::to_string(gm->getSpaceShip()->getLaserAmountBullets()));
-	printtext(5, 665, "Life: " + std::to_string((int)gm->getSpaceShip()->getLife()));
-	printtext(5, 630, "Armor: " + std::to_string((int)gm->getSpaceShip()->getArmor()));
-	printtext(450, 735, "Score: " + std::to_string((int)gm->score_));
+	if (gameIsPlaying)
+	{
+		printtext(920, 735, "FPS: " + std::to_string(int(counter->getFPS())), std::vector<float> { 1, 1, 0 });
+		printtext(5, 735, "MachineGun: " + std::to_string(gm->getSpaceShip()->getMashineGunAmountBullets()), std::vector<float> { 1, 1, 0 });
+		printtext(5, 700, "Laser: " + std::to_string(gm->getSpaceShip()->getLaserAmountBullets()), std::vector<float> { 1, 1, 0 });
+		printtext(5, 665, "Life: " + std::to_string((int)gm->getSpaceShip()->getLife()), std::vector<float> { 1, 1, 0 });
+		printtext(5, 630, "Armor: " + std::to_string((int)gm->getSpaceShip()->getArmor()), std::vector<float> { 1, 1, 0 });
+		printtext(450, 735, "Score: " + std::to_string((int)gm->score_), std::vector<float> { 1, 1, 0 });
+	}
+	else
+	{
+		printtext(435, 470, "GAME OVER!", std::vector<float> { 1, 0, 0 });
+		printtext(410, 435, "TOTAL SCORE: " + std::to_string((int)gm->score_), std::vector<float> { 1, 0, 0 });
+		printtext(370, 400, "TOTAL GAME TIME: " + std::to_string((int)totalPlayedSeconds) + " seconds", std::vector<float> { 1, 0, 0 });
+
+	}
 
 	gm->setCurrentTime(counter->getCurrentTime());
 
-	// like third-person shooter (camera+ship)
-	if (keyPressed[KEY_ID_W] == true) {
-		//	gm->getCam()->moveForward();
-		//	gm->getSpaceShip()->moveForward();
+
+	if (gameIsPlaying)
+	{
+		// like third-person shooter (camera+ship)
+		if (keyPressed[KEY_ID_W] == true) {
+			//	gm->getCam()->moveForward();
+			//	gm->getSpaceShip()->moveForward();
+		}
+
+		if (keyPressed[KEY_ID_A] == true) {
+			gm->getSpaceShip()->moveLeft();
+			gm->getCam()->moveLeft();
+		}
+
+		if (keyPressed[KEY_ID_D] == true) {
+			gm->getSpaceShip()->moveRight();
+			gm->getCam()->moveRight();
+		}
+
+		if (keyPressed[KEY_ID_S] == true) {
+			//gm->getSpaceShip()->moveBackward();
+			//gm->getCam()->moveBackward();
+		}
+
+		if (keyPressed[KEY_ID_SPACE] == true) {
+			//	gm->getCam()->moveUp();
+		}
+
+		if (keyPressed[KEY_ID_C] == true) {
+			//	gm->getCam()->moveDown();
+		}
+
+
+		//ship movement 
+		if (keyPressed[KEY_ID_RIGHT] == true)  gm->getSpaceShip()->moveRight();
+		if (keyPressed[KEY_ID_LEFT] == true)   gm->getSpaceShip()->moveLeft();
+		if (keyPressed[KEY_ID_UP] == true)  gm->getSpaceShip()->moveUp();
+		if (keyPressed[KEY_ID_DOWN] == true) gm->getSpaceShip()->moveDown();
+		if (keyPressed[KEY_ID_FORWARD] == true)  gm->getSpaceShip()->moveForward();
+		if (keyPressed[KEY_ID_BACKWARD] == true) gm->getSpaceShip()->moveBackward();
+		if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
+		if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
+		if (keyPressed[KEY_ID_X] == true) {
+			/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
+			std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
+			std::cout << "CurrentTime: " << counter->getCurrentTime() << std::endl;
+		}
+
+		if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
+		if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
+		if (keyPressed[KEY_ID_O] == true) gm->addEnemies();
+		//if (keyPressed[KEY_ID_P] == true) gm->getEnemy()->move();
+
 	}
-
-	if (keyPressed[KEY_ID_A] == true) {
-		gm->getSpaceShip()->moveLeft();
-		gm->getCam()->moveLeft();
-	}
-
-	if (keyPressed[KEY_ID_D] == true) {
-		gm->getSpaceShip()->moveRight();
-		gm->getCam()->moveRight();
-	}
-
-	if (keyPressed[KEY_ID_S] == true) {
-		//gm->getSpaceShip()->moveBackward();
-		//gm->getCam()->moveBackward();
-	}
-
-	if (keyPressed[KEY_ID_SPACE] == true) {
-		//	gm->getCam()->moveUp();
-	}
-
-	if (keyPressed[KEY_ID_C] == true) {
-		//	gm->getCam()->moveDown();
-	}
-
-
-	//ship movement 
-	if (keyPressed[KEY_ID_RIGHT] == true)  gm->getSpaceShip()->moveRight();
-	if (keyPressed[KEY_ID_LEFT] == true)   gm->getSpaceShip()->moveLeft();
-	if (keyPressed[KEY_ID_UP] == true)  gm->getSpaceShip()->moveUp();
-	if (keyPressed[KEY_ID_DOWN] == true) gm->getSpaceShip()->moveDown();
-	if (keyPressed[KEY_ID_FORWARD] == true)  gm->getSpaceShip()->moveForward();
-	if (keyPressed[KEY_ID_BACKWARD] == true) gm->getSpaceShip()->moveBackward();
-	if (keyPressed[KEY_ID_Z] == true) { gm->weaponFire(); }
-	if (keyPressed[KEY_ID_R] == true) gm->getSpaceShip()->reload();
-	if (keyPressed[KEY_ID_X] == true) {
-		/*std::cout << "Laser: " << gm->getSpaceShip()->getLaserAmountBullets() << std::endl;
-		std::cout << "MachineGun: " << gm->getSpaceShip()->getMashineGunAmountBullets() << std::endl;*/
-		std::cout << "CurrentTime: " << counter->getCurrentTime() << std::endl;
-	}
-
-	if (keyPressed[KEY_ID_1] == true) gm->getSpaceShip()->setWeapon("Laser");
-	if (keyPressed[KEY_ID_2] == true) gm->getSpaceShip()->setWeapon("MachineGun");
-	if (keyPressed[KEY_ID_O] == true) gm->addEnemies();
-	//if (keyPressed[KEY_ID_P] == true) gm->getEnemy()->move();
 
 	glutSwapBuffers();//swap buffer objects ?
 	glutPostRedisplay();
@@ -355,9 +377,9 @@ int main(int argc, char** argv)
 	glutMainLoop();
 	return 0;
 }
-void printtext(int x, int y, std::string String)
+void printtext(int x, int y, std::string String, std::vector<float> color)
 {
-	glColor3f(1.0f, 1.0f, 0.0f);
+	glColor3f(color[0], color[1], color[2]);
 	char string[64];
 	sprintf(string, "something");
 	//(x,y) is from the bottom left of the window

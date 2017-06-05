@@ -248,7 +248,7 @@ int  Model::DrawGLScene()				//Here's where we do all the drawing
 	//glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 	//glRotatef(zrot, 0.0f, 0.0f, 1.0f);
 
-	recursive_render(scene, scene->mRootNode, 0.4);
+	recursive_render(scene, scene->mRootNode, 0.35);
 
 	//xrot+=0.3f;
 	//yrot += 0.2f;

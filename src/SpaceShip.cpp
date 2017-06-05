@@ -6,8 +6,8 @@ SpaceShip::SpaceShip()
 {
 	this->currentWeaponType = "MachineGun";
 	mashineGunAmountBullets = 100;
-	laserAmountBullets = 50;
-	this->life_ = 200;
+	laserAmountBullets = 500;
+	this->life_ = 100;
 	this->armor_ = 100;
 	maxX = 15;
 	minX = 0;

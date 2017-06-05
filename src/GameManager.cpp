@@ -170,6 +170,12 @@ void GameManager::privateUpdate()
 	handleCollSpaceshipVsBullets(spaceship_, enemyBulletsArr_);
 	//std::cout << enemyArr_.size() << std::endl;
 
+	if (score_ == nextScoreUpdate && secondsForEnemy != 1)
+	{
+		nextScoreUpdate += 50;
+		secondsForEnemy -= 0.2;
+	}
+
 }
 
 std::shared_ptr<Camera> GameManager::getCam()
@@ -194,13 +200,12 @@ std::shared_ptr<Skybox> GameManager::getSkybox()
 
 void GameManager::addEnemies()
 {
-
 	float speed = static_cast <float> (rand() % 3 + 1);
 	int xStartPos = rand() % 32 + 20;
 	//random start position
 	enemy_ = std::make_shared<Enemy>(*(new Enemy("ordinary", speed, xStartPos, battlefieldDepth_)));
 
-	// Every 5'th enemy has a weapon
+	// Every 2'th enemy has a weapon
 	if (enemyCounter_ == 2)
 	{
 		enemy_->setAmmo(100);

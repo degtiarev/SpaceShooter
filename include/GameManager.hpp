@@ -81,13 +81,14 @@ private:
 
 	float currentTime;
 	float nextEnemy;
-	int secondsForEnemy = 1;
+	int secondsForEnemy = 5;
+	int nextScoreUpdate;
 	float nextShooting;
-	const float secondsForShooting = 0.5f;
+	const float secondsForShooting = 0.2f;
 	float nextShootingSpaceshipMashineGune;
 	const float secondsForShootingSpaceshipMashineGune = 0.1f;
 	float nextShootingSpaceshipLaser;
-	const float secondsForShootingSpaceshipLaser = 0.00005f;
+	const float secondsForShootingSpaceshipLaser = 0.05f;
 
 };
 
